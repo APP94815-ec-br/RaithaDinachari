@@ -1,0 +1,5353 @@
+
+
+
+
+
+
+
+
+How to troubleshoot linux servers or what are the ways to troubleshoot?
+
+Ping the server where application is deployed.
+Telnet the application url/ IP of server to check if the port is enable of not.
+Ssh to the server and test the application using curl or wget with localhost and port.
+Check the Harddisk space by df -h
+Check the CPU utilization --> using top command
+Check ram utilization --> by free command
+Check the process if it's running or not by using ps -ef 
+check if port is listning or not using netstat
+Check the logs of your application or software.
+
+
+
+
+
+
+
+
+
+For  DevOps
+	
+	
+	
+	I would like to enhance my skills and thought to learn new things for career growth and 
+	to compete with the existing IT world
+
+
+
+
+AWS  
+		  EC2
+		  VPC-(Virtual private cloud)	
+		  Subnet
+		  Route table
+		  Internet gateway
+		  VPC peering	
+		  Elastic Ips
+		  NAt instance										
+		  NAT gateway
+		  S3 (Storage)
+		  IAM		
+		  Load BAlancer
+          Autoscaling					
+		  Route 53
+		  Cloudwatch,SQS,SNS,SES
+          Database
+		  SSM (Patching)
+		  AWS Lambda		
+		  
+Terraform  (Infrastructure as code)
+GIT -Source Code Management Tool	
+Maven - Build Artifacts
+Jenkins - CI/CD
+Docker  -Container Service   --H@r!$h1234  Hari@dec*2019
+Kubernetes 	Orcestration tool for containers
+Ansible	   - Configuration Management tool - Playbooks
+Monitoring tools
+   Nagios
+   DataDog(EC2,Docker, Kubernetes)
+   Promethus and Grafana(For Kubernetes)	
+
+=========================
+
+
+
+DevOps
+
+Career RoadMap
+----------
+
+------
+
+DevOps
+
+1.Plan
+2.Code
+3.Build.
+4.Deploy
+5.Test
+6.Release
+7.Config/Operations
+8.Monitoring 
+
+
+Step a) 1 , 2 . Learn Programming languages
+ 
+  Java,Python*
+
+Step b) 3, 4 .  Learn Building Tools
+		
+   Build  -- Maven, Gradle
+   SCM    --  Git* ,SVN ,Github*, BitBucket
+   CI CD  -- Jenkins
+   Container -- Docker ( Container Platform) ,Kubernetes (Container Management Platform)
+   
+Step c) 5. Learn how to run  tests from Command CI/CD
+	  
+Step d) 6. Learn cloud Service Platforms .
+      
+	   AWS, Azure , Google Cloud Platform
+	   
+Step e) 7. Learn Config Management Tools  	   
+	  
+	   Puppet,Chef, Ansible
+	   
+Step f) 8. Learn Logging/Monitoring Tools
+
+         Nagios
+
+----------------------------------------------------
+DevOps
+
+Programming language 
+    Python
+	 
+Source Control
+   Git Tool   -  Versioning 
+   Github.com  - Repository
+   
+Operating Systems
+
+   Linux
+         BASH
+		         Basic Linux Commands
+				LS    APT/YUM
+				GREP   LSOF
+				UNAME  SS
+				UPTIME	NETSTAT
+				TOP     MOUNT
+				MAN     TOP
+				
+				  /bin  /boot /dev  /etc /home /var /opt /proc  /mnt /sbin				  
+				
+         SSH				
+   
+Networking   
+
+         DNS Name Resolution 
+		 SUBNETTING
+		 GATEWAYS
+		 DHCP/NAT
+		 HTTP
+		 
+		
+
+    Farewalls                                 Load balancing                           Proxy Server
+	
+	Incoming/Outgoing                           Round Robin 							Traffic Flow
+	Stateful/Non-Stateful						Weighted Round Robin                     Forward/Reverse
+	Layer 3-7 Firewalls							Least Connections
+  
+
+Cloud Providers
+	
+     AWS    Azure**   Google Cloud
+  
+  
+Infrastructure as Code
+
+Containers
+ 
+    Docker**
+	
+    Orchestration --	Kubernetes
+	
+	
+Infrastructure Provisioning
+
+    Terraform
+
+Configuration Management
+   
+    Ansible** ,Puppet  Chef , Saltstack
+	
+	
+CI/CD pipelines
+
+   Deploy to-- 	
+   
+        Jenkins** ,  Gitlab , github Actions 
+   
+   
+Log and Monitoring Management
+
+    Nagios , ---   
+ -------------------------------
+ 
+ 
+  SQL
+  shell  scripts /  python scripts
+  
+  Jenkins 5 
+  
+  CI/CD Pipelines
+   pluggings
+   
+ github =
+  git 
+ build trigger
+ 
+ Ansible
+ 
+ AWS -
+ 
+ Docker / K8s -- Container
+ 
+ Yaml file
+ 
+ ========================================
+ 
+ DevOps
+ 
+
+ K8s
+ Docker
+ Ansible
+ AWS
+***Jenkins ******
+ Git
+ Github
+ Maven/npm
+ Nexus
+ STM/Webserver/Apache/Weblogic
+ 
+ 
+ 
+ 
+ 
++++++++++++++++++++
+
+sed  - Stream editor:
+
+sed 's/mango/apple/g'  filename 
+
+sed  -i 's/mango/apple/g'  filename  ignore case
+
+sed 's/mango//g'  filename 
+
+sed '/mango/d'  filename   -- deleting line which matches mango
+
+sed '/^$/d'  filename -- deleting empty lines
+
+sed '1d'  filename -- deleting 1st time
+
+sed '1,2d'  filename deleting 1st 2 time
+
+sed 's/\t/ /g'  filename   -- replcace tabs to space
+
+sed 's/ /\t/g'  filename   -- replcace space to tabs
+
+sed -n 12, 18p   filename   ----- view 12 - 18 lines
+
+sed 12,18d filename  --  to view all except 12 to 18 lines
+
+sed G filename  - emptyline after 1 line
+
+sed '8!s/mango/orange/g' filename    -- replace mango to orange in all lines except 8th line
+
+sed 's/mango/orange/g' filename   -- replace mango to orange
+
+in vi editor
+
+:%s/mango/orange/
+
+
+session 6
+
+VPC:
+
+10.0.0.0/24
+
+32-24=8 
+ 2^8 = 256
+ 
+ 
+    1 subnet  10.0.0.0/24  ---10.0.0.255/25
+        
+		10.0.0.0 /24
+		10.0.0.1/24
+		..
+		10.0.0.255/25 ===> 256
+		
+
+		256 - 5 ==> 251 total 251 Ips
+		
+ -----------------------------------------/16  --- /28  -----
+   2 subnets 256/2= 128
+                         2^7 
+						 32-7 =25
+						 
+		subnet 1 =
+     		         10.0.0.0/25    ---  10.0.0.126/25
+					
+																		10.0.0.1/25
+																		10.0.0.2/25
+																		..
+																		10.0.0.127/25
+															
+																			  128 - 5 = 123 -total IPs available for this Subnet 1	
+					
+        subnet 2 = 
+		
+		             10.0.0.128/25 -- 10.0.0.255/25
+			  
+																		10.0.0.128/25
+																		10.0.0.129/25
+																		
+																		..
+																		10.0.0.255/25
+																		
+																			   128 - 5 = 123 -total IPs available for this Subnet	2
+
+one time maybe set subnet.
+----------------------------------------------------------
+VPC 
+ 10.0.0.0/24
+ 
+	3  subnets 256/3 =
+	
+	               128 Ips 
+	
+	subnet 1 =
+     		         10.0.0.0/25    ---  10.0.0.126/25
+					
+																			10.0.0.1/25
+																			10.0.0.2/25
+																			..
+																			10.0.0.127/25
+																
+																		   128 - 5 = 123 -total IPs available for this Subnet 1	
+						  
+	subnet 2 
+		
+																		128/2 = 64 Ips 
+																				   2^6 
+																					32-6 =26
+
+ 					10.0.0.128/26	-- 10.0.0.192/26
+					
+																			10.0.0.129/26
+																			..
+																			10.0.0.192/26
+																			
+																			64 - 5 = Total 61 Ips
+	subnet 3   64 Ips
+		         10.0.0.193/26  -- 10.0.0.255/26
+				 
+																			 10.0.0.194/26
+																			 ..
+																			 10.0.0.255/26
+																			 
+																			64 - 5 = Total 61 Ips	
+																			
+																			
+DHCP
+
+Dynamic Host Configuration Protocol
+
+Dynamically gives uniquekly Private Ips in that subnet ranges
+
+																			
+					
+					
+Session 7
+
+v0.15	-Version of Terraform
+
+
+terraform plan -target aws_s3_bucket.b		 #	aws_s3_bucket.b -==name of resource
+
+	 Unique
+	 
+	 
+	 +++++++++++++++++++++++
+	 
+POD and Service
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mavenPod
+  namespace: test-ns
+  labels:
+    app: mavenapp
+spec:
+  containers:
+  - name: mavenContainer
+    image: harishkumarbr/maven-web-app:1
+    ports:
+    - containerPort: 8080
+---    
+apiVersion: v1
+kind: Service
+metadata:
+  name: mavenService:
+  namespace: test-ns
+spec:
+  type: NodePort/ClusterIP
+  selector:
+    app: mavenapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 32019  
+    # Optional
+    
+    
+ +++++++++++++++++++++++++++++++++++++++++++   
+ ++++++++++++++++++++++++++++++++++++++++++++++
+ RC and Service
+ 
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name:mavenRC
+  namespace: test-ns
+  #labels:
+   # app: mavenapp
+spec:
+  replicas: 1
+  selector:
+    app: mavenapp
+  template:
+    metadata:
+      name: mavenPod
+      namespace: test-ns
+      labels:
+        app: mavenapp
+    spec:
+    - name: mavenContainer
+      image: harishkumarbr/maven-web-app:1
+      ports:
+      - containerPort: 8080
+---
+apiVersion: v1
+kind:  Service
+metadata:
+  name: mavenServiceRC
+spec:            
+  type: NodePort/ClusterIP
+  selector:
+    app: mavenapp
+  ports:
+  - ports: 80
+    targetPort: 8080
+    NodePort: 310917
+ # optional
++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++
+
+# RS
+
+apiVersion: apps/v1
+kind:  ReplicaSet
+metadata:
+  name: mavenRS
+  namespace: test-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mavenapp
+  template:
+    metadata:
+      name: mavenPod
+      namespace: test-ns
+      labels:
+        app:mavenapp
+    spec:
+      containers:
+      - name: mavenContainer
+        image: harishkumarbr/maven-web-app:1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mavenServiceRS
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+   app: mavenapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 310454
++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++    
+   # Deployment Recreate
+   
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:mavenDeploymentRecreate
+  namespace: test-ns
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate 
+  selector:
+    matchLabels:
+      app: mavenapp
+  template:
+    metadata:
+      name: mavenPod
+      namespace: test-ns
+      labels:
+        app: mavenapp
+    spec:
+      containers:
+      - name: mavenContainer
+        image: harishkumarbr/maven-web-app:1
+        ports:
+        - containerPort: 8080
+    
+      
+---        
+apiVersion: v1
+kind: Service
+metadata:
+  name: mavenServiceDeploymentRecreate
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+   app: mavenapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 310454        
+        
+++++++++++++++++++++++++++
+++++++++++++++++++++++++++
+
+
+Deployment with Rolling Update
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: mavenDeploymentRollingUpdate
+ namespace: test-ns
+spec:
+  replicas: 2
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 1    
+  selector:
+    matchLabels:
+      app: mavenapp
+  template:
+    metadata:
+     name: mavenPod
+     namespace: test-ns
+     labels:
+       app: mavenapp
+    spec:
+      containers:    
+      - name: mavenContainer
+        image: harishkumarbr/maven-web-app:1
+        ports:
+        - containerPort: 8080
+---
+# service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mavenServiceDeploymentRollingUpdate
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: mavenapp
+  port:
+  - ports: 80
+    targetPort: 8080
+ 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#HPA Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: HPADeployment
+  namespace: test-ns
+spec:
+  replicas: 2
+  strategy: RollingUpdate
+  selector:
+    matchLabels:
+      app: mavenapp
+  template:
+    metadata:
+      name: HPAPod
+      namespace: test-ns
+      labels:
+        app: mavenapp
+    spec:
+      containers:
+      - name: mavenContainer
+        image: harishkumarbr/maven-web-app:1
+        ports:
+        - containerPort: 8080      
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "600Mi"        
+---        
+apiVersion: v1
+kind: Service
+metadata:
+  name: HPADeploymentService
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: mavenapp
+  port:
+  - ports: 80
+    targetPort: 8080  
+---
+apiVersion: autoscaling/v2beta2
+kind: HorizonatalPodCluster
+metadata:
+  name: HPA
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: HPADeployment
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 40
+  - type: Resource
+    resource:
+      name: memory
+      target:
+      type: Utilization
+      averageUtilization: 40    
+      
+  +++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++  
+  # volume with HostPath
+#Spring APP
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: SpringAppDeploymentHostPath
+  namespace: test-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springapp
+    template:
+      metadata:
+        name: springPod
+        labels:
+          app: springapp
+      spec:
+        containers:
+        - name: SpringContainer
+          image: harishkumarbr/spring-boot-mongo:1
+          port:
+          - containerPort: 8080
+          env:
+          - name: MONGO_DB_HOSTNAME
+            value: mongodbService
+          - name: MONGO_USER_NAME
+            value: devdb
+          - name: MONGO_PASSWORD
+            value: devdb@123
+---
+#APP Service
+apiVersion: v1
+kind: Service
+metadata:
+ name:mongoservice
+ namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+# Mongodb
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: MongodbRS
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      name: mongodbPod
+      namespace: test-ns
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodbContainer
+        image: mongo
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: devdb
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: devdb@123        
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "600Mi"  
+        volumeMounts:
+        - name: volumeHostPath
+          mountPath: /data/db
+      volumes:
+      - name: volumeHostPath
+        hostPath:
+          path: /tmp/dbstore      
+---
+#mongodb Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodbService
+  namespace: test-ns
+spec:
+  type: ClusterIP # default
+  selector:
+    app: mongodb
+  ports:
+  - port: 27017  
+    targetPort: 27017
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+    # volume with NFS
+    
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeploymentNFS
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      name: springPod
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          value: devdb
+        - name: MONGO_PASSWORD
+          value: devdb@123  
+---
+#SpringService
+apiVersion: v1
+kind: Service
+metadata:
+  name: springappService
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 312001
+---
+# mongobsrs
+apiVersion: v1
+kind: ReplicaSet
+metadata:
+  name: mongodbRS
+  namespace: test-ns
+spec:
+  replicas: 1
+  selector:
+    app: mongoapp
+  template:
+    metadata:
+      name: mongoappPod
+      labels:
+        app: mongoapp
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: volumenfs
+          mountPath: /data/db
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: devdb
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: devdb@123                  
+      volumes:
+      - name: volumenfs
+        nfs:
+          server: 10.23.32.123  #Ip of nfs server
+          path: /mnt/share # path in nfs server        
+---
+#mongodbService
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
+---     
+    
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#PV 
+#PVC     with hostpath
+        
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeploymentpvc
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          value: devdb
+        - name: MONGO_PASSWORD
+          value: devdb@123         
+---
+apiVersion: v1
+kind: Service
+namespace: test-ns
+metadata:
+  name: springappService
+spec:
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: devdb
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: devdb@123 
+        volumeMounts:
+        - name: pvc_hostpath
+          mountPath: /data/db   
+      volumes:
+      - name: pvc_hostpath
+        persistentVolumeClaim:
+          claimName: mypvc-hostpath
+          
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc-hostpath
+  namespace: test-ns
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv-hostpath
+  namespace: test-ns
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /tmp/dbstore
+  #persistentVolumeReclaimPolicy: Recycle default = delete
+  #storageClassName: slow
+  #mountOptions:
+   # - hard
+    #- nfsvers=4.1
+  #nfs:
+   # path: /tmp/dbstore
+    #server: 172.17.0.2
+      
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#PV
+#PVC with nfs
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeploymentpvc
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          value: devdb
+        - name: MONGO_PASSWORD
+          value: devdb@123         
+---
+apiVersion: v1
+kind: Service
+namespace: test-ns
+metadata:
+  name: springappService
+spec:
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: devdb
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: devdb@123 
+        volumeMounts:
+        - name: pvc_nfs
+          mountPath: /data/db   
+      volumes:
+      - name: pvc_nfs
+        persistentVolumeClaim:
+          claimName: mypvc-nfs
+          
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mypvc-nfs
+  namespace: test-ns
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mypv-nfs
+  namespace: test-ns
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  #hostPath:
+   # path: /tmp/dbstore
+  #persistentVolumeReclaimPolicy: Recycle default = delete
+  #storageClassName: slow
+  #mountOptions:
+   # - hard
+    #- nfsvers=4.1
+  nfs:
+    path: /tmp/dbstore
+    server: 172.17.0.2
+ 	 
++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++     
+# PVC + StorageClass (PV wil auto created once confogured StorageClass) 
+ 
+#SpringApp
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          value: devdb
+        - name: MONGO_PASSWORD
+          value: devdb@123        
+---        
+#APP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: springappService
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 30123 # 30000 - 32767
+---
+#Mongo DB App
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodbdeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: devdb
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: devdb@123
+        volumeMounts:
+        - name: pvc_mongo
+          mountPath: /data/db
+      volumes:
+      - name: pvc_mongo
+        persistentVolumeClaim:
+          claimName: pvc_storage_pv
+---
+# PVC
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc_storage_pv
+  namespace: test-ns
+spec:
+  resources:
+    requests:
+      storage: 100mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+---
+#mongo service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ConfigMap and Secrets + APP , Service , Mongo DB + Service + PVC +  
+
+
+
+#Config Map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springAppConfigMap
+  namespace: test-ns
+data:
+  userName: devdb
+---
+#Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: springAppSecret
+  namespace: test-ns
+type: Opaque
+stringData:
+  password: devdb@123
+---
+#SpringApp
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeployment
+  namespace: test-ns
+spec:
+  replicas: 2
+  strategy: Recreate
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: springAppConfigMap
+              key: userName
+          #value: devdb
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: springAppSecret
+              key: password
+        #  value: devdb@123        
+---        
+#APP Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: springappService
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 30123 # 30000 - 32767
+---
+#Mongo DB App
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodbdeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          #value: devdb
+          valueFrom:
+            configMapKeyRef:
+              name: springAppConfigMap
+              key: userName
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          #value: devdb@123
+          valueFrom:
+            secretKeyRef:
+              name: springAppSecret
+              key: password
+        volumeMounts:
+        - name: pvc_mongo
+          mountPath: /data/db
+      volumes:
+      - name: pvc_mongo
+        persistentVolumeClaim:
+          claimName: pvc_storage_pv
+---
+# PV
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc_storage_pv
+  namespace: test-ns
+spec:
+  resources:
+    requests:
+      storage: 100mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+---
+#mongo service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
+ +++++++++++++++++++++++++++++++++++++++++++++++
+ +++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ #liveness Probe and Readiness Probe  + ConfigMap + Secrets + PVC
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: springappdeployment-liveness-readiness
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappPod
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongo
+        - name: MONGO_USER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: springAppConfigMap
+              key: userName
+          #value: devdb
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: springAppSecret
+              key: password
+        #  value: devdb@123        
+        livenessProbe:
+          httpGet:
+            path: /java-web-app
+            port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 30 # time interval
+            timeoutSeconds: 10 #  response time 
+        readinessProbe:
+          httpGet:
+            path: /java-web-app
+            port: 8080
+            initialDelaySeconds: 40
+            periodSeconds: 30
+            timeoutSeconds: 5
+---
+ # app service
+apiVersion: v1
+kind: Service
+metadata:
+  name: springappService
+spec:
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+#Mongo DB App
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodbdeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          #value: devdb
+          valueFrom:
+            configMapKeyRef:
+              name: springAppConfigMap
+              key: userName
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          #value: devdb@123
+          valueFrom:
+            secretKeyRef:
+              name: springAppSecret
+              key: password
+        volumeMounts:
+        - name: pvc_mongo
+          mountPath: /data/db
+      volumes:
+      - name: pvc_mongo
+        persistentVolumeClaim:
+          claimName: pvc_storage_pv
+---
+# PV
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc_storage_pv
+  namespace: test-ns
+spec:
+  resources:
+    requests:
+      storage: 100mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+---
+#mongo service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  namespace: test-ns
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
+---
+#Config Map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springAppConfigMap
+  namespace: test-ns
+data:
+  userName: devdb
+---
+#Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: springAppSecret
+  namespace: test-ns
+type: Opaque
+stringData:
+  password: devdb@123       
+
+++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++
+              
+ ## Stateful set
+ 
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongodb
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: mongodb
+  serviceName: mongodb-Service
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongoContainer
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: persistent-volume-stateful
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: persistent-volume-stateful
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---
+#mongodb Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-Service
+  namespace: test-ns
+  labels:
+    name: mongodb
+spec:
+  selector:
+    app: mongodb
+  ClusterIP: None # Headless Service  
+  ports:
+  - port: 27017
+    targetPort: 27017
+---
+#Spring APP
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springappDeploymentStatefulSet
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springapp
+  template:
+    metadata:
+      labels:
+        app: springapp
+    spec:
+      containers:
+      - name: springappContainer
+        image: harishkumarbr/spring-boot-mongo:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MONGO_DB_HOSTNAME
+          value: mongodb-Service
+        - name: MONGO_USER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: springAppConfigMap
+              key: userName
+          #value: devdb
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: springAppSecret
+              key: password
+        #  value: devdb@123         
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: springappService
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:
+    app: springapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 32323
+              
+---
+#Config Map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: springAppConfigMap
+  namespace: test-ns
+data:
+  userName: devdb
+---
+#Secrets
+apiVersion: v1
+kind: Secret
+metadata:
+  name: springAppSecret
+  namespace: test-ns
+type: Opaque
+stringData:
+  password: devdb@123       
+
+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
+
+## Node Selector
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappDeploymentNodeSelector
+spec:
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      replicas: 2
+      nodeSelector:
+        name: workerNode
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+spec:
+  type: NodePort
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+    NodePort: 31092
+
+++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++
+
+          
+# Node affinity -requiredDuringSchdedulingIgnoredDuringExecution
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappDeploymentNodeAffinity
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 60
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchdedulingIgnoredDuringExecution:
+            nodeSelectorsTerms:
+            - matchExpressions:
+              - key: "node"
+                operator: In
+                values:
+                - workernode
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+spec:
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+++++++++++++++++++++++
++++++++++++++++++++++
+
+ ## Node affinity -prefferedDuringSchedulingIgnoredDurindExecution
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappDeploymentNodeAffinity
+  namespace: test-ns
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 60
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      affinity:
+        nodeAffinity:
+          prefferedDuringSchedulingIgnoredDurindExecution:
+          - weight: 1
+            preference:
+            - matchExpressions:
+              - key: "node"
+                operator: In
+                values:
+                - workerone
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+  namespace: test-ns
+spec:
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++
+
+# Pod Affinity and Pod AntiAffinity
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxDeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: nginxApp
+  template:
+    metadata:
+      labels:
+        app: nginxApp
+    spec:
+      containers:
+      - name: nginxContainer
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxAppService
+  namespace: test-ns
+spec:
+  selector:
+    app: nginxApp
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappDeploymentPodAffinity
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - nginx
+            topologyKey: topology.kubernetes.io/zone
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+              - key: security
+                operator: In
+                values:
+                - maven
+          topologyKey: topology.kubernetes.io/zone            
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---        
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+  namespace: test-ns
+spec:
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080   
+++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++
+
+
+#Pod AntiAffinity
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginxDeployment
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: nginxApp
+  template:
+    metadata:
+      labels:
+        app: nginxApp
+    spec:
+      containers:
+      - name: nginxContainer
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginxAppService
+  namespace: test-ns
+spec:
+  selector:
+    app: nginxApp
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappDeploymentPodAffinity
+  namespace: test-ns
+spec:
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - nginx
+            topologyKey: topology.kubernetes.io/zone         
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---        
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+  namespace: test-ns
+spec:
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+---
++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+       
+# taint :
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Javawebapptaints
+spec:
+  selector:
+    matchLabels:
+      app: Javawebapp
+  template:
+    metadata:
+      labels:
+        app: Javawebapp
+    spec:
+      tolerations:
+      - effect: "NoSchedule"
+        operator: "Exists"
+      containers:
+      - name: JavawebappContainer
+        image: harishkumarbr/java-web-app:1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: JavawebappService
+spec:
+  selector:
+    app: Javawebapp
+  ports:
+  - port: 80
+    targetPort: 8080
+ +++++++++++++++++++++++++++
++++++++++++++++++++++++++++ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LINUX:	
+
+
+
+cd
+mkdir
+ls
+touch
+rmdir
+rm -rf
+
+
+
+find . -type f -empty
+find ~ -type d -empty
+
+find . -iname harish.txt
+
+
+umask
+0022 -- root
+0002 -- normal user
+
+r w x
+4 2 1
+0777 - dir
+0666 - file
+
+chmod 
+chmod -R 400 devOps
+
+chown
+chown root devOps.txt
+chmod -R  root devOps
+
+
+sudo su 
+sudo su -
+
+session 4:
+
+chgrp
+
+chgrp root devOps.txt
+chgrp -R  root devOps
+
+
+
+chown ec2-user:ec2-user devOps.txt
+chown -R ec2-user:ec2-user devOps
+
+
+cp
+
+cp source destination --> file
+cp -r source destination  --> directory
+
+cp *.txt devOps
+
+
+mv
+
+mv oldname newname
+
+
+file 1.txt  -------> to decide the content of file
+
+wc
+
+ln /var/logs/a.txt  /tmp/b.txt
+
+ln -s logs/1.txt /tmp/b.txt
+
+vi
+vim
+
+session 5
+
+vi ~/.ssh/config
+
+Host *
+     ServerAliveInternal 30
+	 ServerAliveCountMax 2
+	 
+nano test.txt
+
+echo
+
+cat
+head
+tail
+sed
+
+cat -n filename.txt
+ 
++++++++++++++++++++
+
+sed  - Stream editor:
+
+sed 's/mango/apple/g'  filename 
+
+sed  -i 's/mango/apple/g'  filename  ignore case
+
+sed 's/mango//g'  filename 
+
+sed '/mango/d'  filename   -- deleting line which matches mango
+
+sed '/^$/d'  filename -- deleting empty lines
+
+sed '1d'  filename -- deleting 1st time
+
+sed '1,2d'  filename deleting 1st 2 time
+
+sed 's/\t/ /g'  filename   -- replcace tabs to space
+
+sed 's/ /\t/g'  filename   -- replcace space to tabs
+
+sed -n 12, 18p   filename   ----- view 12 - 18 lines
+
+sed 12,18d filename  --  to view all except 12 to 18 lines
+
+sed G filename  - emptyline after 1 line
+
+sed '8!s/mango/orange/g' filename    -- replace mango to orange in all lines except 8th line
+
+sed 's/mango/orange/g' filename   -- replace mango to orange
+
+in vi editor
+
+:%s/mango/orange/
+
+
+less
+
+more
+sort
+|
+tr
+
+grep -i harish devOps.txt
+
+grep  harish devOps.txt 1.txt
+
+
+
+who
+who -H
+
+last
+
+w
+
+uptime
+
+lscpu
+
+ cat /proc/cpuinfo
+ 
+ 
+ users
+ 
+ whoami
+ 
+ whereis cat
+ whereis java
+ 
+ which ls
+ 
+ date
+ 
+ df -h
+ 
+ du -sh ~
+ 
+ hostname
+ 
+ hostname -i
+ ifconfig
+ ip a
+ 
+ 
+ man
+ man ls
+ 
+ info mkdir
+ 
+ mkdir --help
+ 
+ 
+ whatis
+ 
+ whatis mkdir
+ 
+ 
+ 
+ service
+ systemctl list-unit-files
+ 
+ service sshd status
+ systemctl status sshd
+ 
+ 
+ chkconfig sshd on
+ 
+ ps
+ 
+ps -ef
+ 
+kill
+
+top
+
+sar
+
+zip -r  devOps.zip devOps
+unzip
+tar
+
+
+#useradd harish
+#passwd harish
+
+chage harish
+
+groupadd devOps
+
+usermod -g groupname username
+
+usermod -L username --------> lock user
+
+usermod -U username ----->unlock
+
+id username
+groups username
+
+usermod -aG g1 g2 g3 username
+
+
+lid -g groupname
+
+sudo su - username
+sudo -iu username
+ su - username
+ 
+ visudo
+   vi /etc/sudoers  
+ 
+ userdel
+ groupdel
+ 
+ 
+ userdel -r username
+ 
+ 
+ Crontable
+ 
+ crontab
+ 
+	
+ssh
+
+ssh userName@ip
+or
+
+ssh userName@hostname
+
+with pasword
+vi /etc/ssh/sshd_config
+PasswordAuthentication yes
+
+service sshd restart
+
+scp filename userName@ip:/tmp/
+or
+scp filename userName@hostname:/tmp/
+
+df -hard
+du -sh
+
+
+free
+
+mail
+
+
+wget
+
+curl
+
+tee
+
+script
+
+cal
+
+    
+    telnet
+    ping
+    history
+    
+netstat tulnpa
+watch
+
+shutdown
+
+++++++++++++++++++++
+
+cat /etc/shells
+
+echo $$0
+echo $SHELL
+echo ps -p $$
+
+
+#! /bin/bash
+
+./filename.sh
+. filename
+sh filename.sh
+
+/bin/sh
+/bin/bash
+
+
+sh -x filename.sh   
+
+set -x
+
+
+set +x
+
+
+#
+
+<<H
+
+H
+
+
+/*
+
+
+
+*/
+
+
+
+Display System defined Variables:
+
+env
+print env
+
+comgen -v
+
+pwd -- command
+
+PWD -- variable name 
+
+
+echo $ HISTSIZE
+
+export HISTSIZE=200
+
+
+set HISTSIZE permanent::specific user
+
+vi ~/.bash_profile
+export HISTSIZE=200
+
+
+
+set HISTSIZE permanent::all user  run in root
+
+vi /etc/profile
+export HISTSIZE=200
+
+echo $LOGNAME
+
+
+a=10
+b=10.2
+c=harish
+d=Tech Mahindra
+
+
+sh dbbackup.sh arg1 arg2  .. args10
+
+$0
+
+$1   1st argument
+$2
+$3 
+..
+..
+${10}
+
+$#  number of Arguments
+
+$*  print ALL arguments
+$@  or $*
+$$
+$?
+
+
+
+if [ $# -eq 2]
+then
+..
+..
+
+fi
+
+String
+
+var="Malnad College of Engineering"
+
+echo ${#var}   -- length of the String
+
+echo ${var:20}  
+
+echo ${var 1:20}
+
+echo ${var:20:14}
+
+echo ${var:0:14}
+
+echo ${var:-8}
+
+
+Arthematic Opertaion:
+
+expr 1 + 2
+expr 2 - 3
+expr 2 \* 9
+expr 4 / 2
+
+sum =`expr 1 + 2`
+
+echo "addtion is :" `expr 2 + 3`
+echo "search:" `$USER` 
+
+-------------------------
+
+sh commandLineArthematicOperation.sh 4 8
+
+
+
+echo "Enter values of a is: " $1 
+echo "Enter values of b is: " $2
+
+echo "addtion of a and b :"` expr $1 + $2` 
+
+echo "multiplication of a and b : "` expr $1 \* $2` 
+
+
+--------------------------
+
+
+
+
+echo "Please enter DevOps Tools.."
+read -a  devopsTool
+
+echo "entered tools are :"${devopsTool[*]}
+echo "enter the position to cehck the respective value"
+read n
+b=`expr n - 1`
+echo "entered tools  in" $n"st position:"${devopsTool[$b]}
+
+echo "entered tools  in 1st position:"${devopsTool[0]}
+echo "entered tools  in "$n"th position:"${devopsTool[`expr $n - 1`]}
+# Array
+
+--------------------------
+echo " name is"
+read
+
+echo "stored in "$REPLAY
+----------------------
+#online printing
+ 
+read -p "enter name:"  userName
+ 
+read -ps "enter passsword:" passsword
+echo
+echo "enter username and password is " $userName $password
+
+-----------
+
+echo "Enter values of a"
+read a 
+
+echo "Enter values of b"
+read b
+
+echo "Enter values of a is: " $a 
+echo "Enter values of b is: " $b
+
+echo "sum  of a and b"` expr $a + $b` 
+
+--------------------------------------
+
+Input and Output direction symbols:
+
+>  redirect std o/p
+>> append std o/p
+<  std input
+
+0 std i/p
+1 std Output
+2 std error
+
+
+ls > list.txt
+
+cat < list.txt
+
+
+sh hello.sh >output.log   #  0nly output in output.log file, error in console
+
+sh hello.sh >output.log 2>&1  #both error  and output in output.log file
+
+
+sh hello.sh 2>error.log 1>output.log # error in error.log , output in output.log
+
+
+Control Statements:
+
+if [ condition]
+then
+..
+..
+fi
+
+----
+if [ condition ]
+then
+...
+...
+
+else
+
+fi
+
+-----
+if [ condition ] ; then
+.....
+.....
+else
+....
+...
+fi
+-------------
+a=20
+b=30
+
+if [ $a -gt $b ]
+then
+echo "$a is greater than $b"
+else
+echo "$b is greater than $c"
+fi
+
+----------------------
+
+a=20
+b=30
+c=50
+if [[ ($a -gt $b) && ($b -gt $c) ]]
+then
+echo "$a is greater than $b and $c"
+elif [[ ($b -gt $c) && ($b -gt $a) ]]
+echo "$b is greater than $c and $a"
+else 
+echo "$c is greater than $a and $b"
+fi
+------------------
+
+sh search.sh
+
+echo "enter the file name to search"
+read filename
+if [[ -f $filename ]]
+then
+echo " $filename is present in current directory"
+echo "displaying the content in $filename"
+cat $filename
+else
+echo " $filename is  not present in current directory"
+echo "Do you want to create it"
+echo "print yes or y or Y or Yes  ---> for creating it"
+read value
+if [[ $value -eq 'yes' || $value -eq 'Yes' || $value -eq 'Y' || $value -eq 'y' ]]
+then
+touch $filename
+echo "$filname is creating.."
+fi
+fi
+
+------------
+if [[ -d $directory ]]
+
+
+------------
+if [[ -r $filename ]]
+
+------------
+if [[ -w $filename ]]
+
+------------
+if [[ -x $filename ]]
+
+----------------------------------------
+Loops
+
+for  (( initilisation ; condition : inc/dec ))
+do
+..
+....
+..
+
+done
+-----
+echo "demo of for loop"
+for (( a=1;a<=5;a++ ))
+do 
+echo "$a"
+done
+
+echo "demo done"
+----
+
+for i in {100 .. 1}
+
+--------------------------
+while demo
+initilisation
+while ( condition )
+do
+...
+....
+inc/dec
+done
+----------------
+echo "while loop demo starts"
+a=5
+while ( $a -ge 0 )
+
+echo "time left "$a "Second"
+
+a=`expr $a - 1`
+done
+echo "done While Demo"
+
+----------------------
+
+-le
+-lt
+-gt
+-ge
+-eq
+------------------
+
+switch case:
+
+#instead of nested if else we can use switch case:
+sh sonar.sh
+
+echo "Enter option to to start ,stop ,restart"
+read option
+
+case $option in
+start) 
+echo "starting sonarQube"
+        echo "starting......." ;;
+stop) 
+ echo "Stoping sonarQube"
+        echo "Stoping......."
+		;;
+restart) 
+echo "Restarting sonarQube"
+        echo "Restarting......."
+*)
+echo "enter valid option as start or stop or restart
+  usage of $0 script to start or stop or restart"
+  ;;
+easc
+
+-------
+
+sh sonar.sh start|stop|restart
+
+
+case $option in
+start) 
+echo "starting sonarQube"
+        echo "starting......." ;;
+stop) 
+ echo "Stoping sonarQube"
+        echo "Stoping......."
+		;;
+restart) 
+echo "Restarting sonarQube"
+        echo "Restarting......."
+*)
+echo "enter valid option as start or stop or restart
+  usage of sh $0 script to start or stop or restart"
+  ;;
+easc
+---------------------------
+convertScript.sh
+
+ echo "enter number only as 1 to 5 "
+ read number
+ case $number in
+ 1) echo "you have typed $number is one"
+ ;;
+ 2) echo "you have typed $number is two"
+ ;;
+ 3) echo "you have typed $number is three"
+ ;;
+ 4) echo "you have typed  $number is four"
+ ;;
+ 5) echo "you have typed  $number is five"
+ ;;
+ *)
+ echo "enter valid number from 1- 5 only"
+ sh convertScript.sh
+ ;;
+ easc
+
+
+------------------------------------------------------------
+
+functions :
+
+functionName(){
+
+
+
+}
+
+functionName
+
+
+----------
+
+sh function.sh
+echo "function demo"
+greeting(){
+echo "Hi All,"
+echo ""
+echo  "
+Have a nice day."
+echo "
+Regards,
+Harish "
+}
+
+echo "callling function"
+
+greeting
+
+echo "called functions"
+---------------------
+sh utilities.sh
+
+add()
+{
+echo " sum"
+}
+
+sub(){
+echo "sub"
+}
+----------------
+sh sample.sh
+
+multi()
+
+{ echo "multiplication"
+}
+-----------------
+sh a.sh
+
+source ./utilities.sh
+source ./sample.sh
+add
+sub
+echo "calling add , sub , multi functions in utilities.sh script $0 script"
+------------
+sh b.sh
+
+source ./utilities.sh
+source ./sample.sh
+add
+sub
+
+echo "calling add , sub , multi functions in utilities.sh script in $0 script"
+
++++++++++++++++++++++++++++++++=
+
+
+
+Git:
+
+Enterprise Edition
+
+Gitlab
+Github
+BitBucket(Stash)
+
+
+login
+
+username: harishkumarbr
+email :harishkumarbr8@gmail.com
+Password: H@r!$h1234
+
+
+1: create Organization
+   name of Organization: APP94815-ec-br
+   email : ServiceId/Functional Mai ID
+   
+   https://github.com/APP94815-ec-br
+2: Create a Repository
+
+    Repository name:
+	
+	Public /Private 
+	
+https://github.com/APP94815-ec-br/Wallmart -- public repo
+	
+
+https://github.com/APP94815-ec-br/Amazon.git -- Private repo
+
+
+3: Create Teams
+
+https://github.com/orgs/APP94815-ec-br/teams/raithadinachari-teams
+
+    Add Members to team
+	Add Team to Repository
+	
+
+4: Provide the Repository access to the Team	
+
+  	https://github.com/orgs/APP94815-ec-br/teams/raithadinachari-teams/repositories
+	
+	write
+	read
+	
+	
+----------
+git
+
+cd wallmart
+
+git init
+
+git config --global user.name ""
+$ git config --global user.name "harishkumarbr"
+$ git config --global user.email "harishkumarbr8@gmail.com"
+git config --global --list
+
+
+git status
+
+git add .
+git add filename1 filename2
+git add *.java
+git add *
+
+git commit -m "some msgs"
+
+git commit -m "some mgs" filename1 filename2
+
+
+git remote add aliasname url
+
+git remote add RD https://github.com/APP94815-ec-br/RaithaDinachari.git
+
+git remote add origin https://github.com/APP94815-ec-br/RaithaDinachari.git
+
+
+
+git remote -v
+	
+
+git push RD master
+git push origin master
+
+gti push origin main
+
+PAT:
+
+personal access token
+
+git commit -a  -m "updated"	
+
+git log
+git log -2
+git log --online
+
+
+git show <commit_id>
+
+# only file name:
+git show --pretty="" --name-only <commit_id>
+
+git remote remove aliasname  
+git remote remove RD
+
+
+
+
+
+
+
+
+
+
+tag:
+
+
+git tag tagName
+
+git push aliasname tagName
+
+git tag -d tagName
+
+stash:
+
+git stash
+
+git stash list
+
+stash@{0}  -->latets
+stash@{1}
+stash@{2}
+
+
+git stash apply
+git stash apply stash@{1}
+
+git stash drop
+git stash drop stash@{1}
+
+git stash pop
+git stash pop stash@{1}
+
+
+  cheery-pick:
+
+git commit -a -m "msg1"
+git commit -a -m "msg2"
+git  checkout branchName
+
+git cheery-pick <commit_id>
+
+      Clone:
+
+
+git clone <url>
+
+
+git pull origin master
+
+
+git fetch origin master  + git merge origin/master
+
+
+ssh-keygen
+.
+.
+
+##configuring public key in github
+
+
+ls -la ~/.ssh
+
+id_rsa
+id_rsa.pub
+
+
+cat ~/.ssh/id_rsa.pub
+
+
+ssh -T git@github.com  
+
+
+git@github.com:harishgowdabr/maven-web-application.git
+
+
+ssh-keygen
+shh-copy-id
+
+
+
+git  API:
+
+sshkeygenandupload.sh file by bhaskar
+
+Branching strategy
+
+
+
+git commit -a --aemnd -m  ""
+
+git branch -m oldbranch newbranch
+
+git branch -m newbranch
+
+master>git checkout feature 
+
+git checkout -b newbranch master
+
+
+
+Branching
+
+git branch
+
+git branch branchName
+
+git branch -d branchName
+
+git checkout branchName
+
+git diff branchName
+
+git merge branchName
+
+Merge Conflicts
+
+git checkout -b newBranchName
+
+git push AliasName branchName1 branchName2
+
+git push AliasName --all
+
+git push AliasName :branchName # branch is deleted in Remote repo
+
+git push AliasName branchName -d
+
+
+PR - Pull Request
+
+
+
+Tags:
+
+git tag
+
+git tag tagName
+
+   git tag wallmartv1.0.0
+
+git tag -d tagName
+
+git push AliasName --tags
+
+git push AliasName tagName
+
+
+git pull AliasName branchName 
+
+
+
+git fetch AliasName branchName
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------
+
+
+Maven
+
+
+
+Build Tools:
+
+Maven:
+
+Java ,JDK
+
+
+javac hello.java
+
+java hello
+
+
+javac --version ------------> JDK
+
+JRE ---
+
+java :
+
+java -version 
+
+mvn -version
+
+boot 
+bin
+conf - settings.xml***
+lib
+pom.xml
+
+mvn clean package
+
+wallmart.xml
+
+mvn -f wallmart.xml  clean package
+
+
+
+maven repo:
+
+maven local repositories
+
+maven central repositories
+
+maven remote repositories
+
+~/.m2/repository
+
+
+life cycles
+
+
+Life Cycle      GoalName
+clean            clean:
+
+site              site
+
+default             validate:
+					compile
+					test	
+					package
+					install
+					deploy
+						
+
+
+mvn clean package -Dskiptests
+mvn clean package -Dmaven.test.skip=true
+
+settings.xml
+
+<localRepository>path</localRepository>
+
+
+mvn clean package  -pl moduleName
+----------------------------------------------------------
+
+Tomcat:
+
+
+
+Tomcat is an OS, Java Based, Web App server..
+
+
+Application Servers
+-------------------
+
+1.x to 7.x --> JBoss
+8.x to latest version --> Wildfly
+
+
+JBoss/Wildfly --> RedHat --> IBM
+Weblogic --> BEA --> Oracle
+WebSphere Application Server (WAS) --> IBM
+
+
+Jboss/Wildlfy --> Enterprise APp servers
+bin/ :
+
+startup.sh
+shutdown.sh
+startup.bat
+
+sh catalina.sh start
+sh catalina.sh stop
+version.bat
+
+
+conf/:
+
+tomcat-users.xml  
+server.xml-- line number 69
+
+lib/:
+jar files
+
+logs/:
+
+catalina.out  , manager.log ,  
+
+
+webapps/:
+all deployed apps,
+
+5 default apps
+
+work/
+
+
+tmp/
+
+
+
+--------Installation
+Java 
+
+
+
+curl -o apache-tomcat-9.0.56.zip https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.zip
+
+or
+
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.56/bin/apache-tomcat-9.0.56.zip
+
+
+unzip apache-tomcat-9.0.56.
+
+cd /opt/apache-tomcat-9.0.56/bin
+
+
+chmod u+x *.sh
+
+
+ln -s /opt/apache-tomcat-9.0.56/bin/startup.sh /usr/bin/startTomcat
+ln -s /opt/apache-tomcat-9.0.56/bin/shutdown.sh /usr/bin/stopTomcat
+
+
+
+
+
+roles:
+
+manager-gui
+admin-gui
+manager-script
+
+in config
+server.xml
+
+change port line number  69
+
+
+
+in config
+tomcat-users.xml
+	  <user username="admin" password="admin" roles="manager-script"/>
+ <user username="admin" password="admin" roles="manager-gui,admin-gui"/
+
+
+
+  In Webapps - Manager -- META-INF--context.xml --valve commented
+         HostManager -valve commented 
+		 
+		 		 
+
+
+
+Web Servers
+-----------
+
+Apache HTTP server
+Nginx (Engine X)
+
+IBM HTTP Server (IHS)
+
+IIS
+
+
+
+
+------Installation HTTP Server--
+
+yum install httpd -y
+
+
+systemctl start httpd
+
+cd /var/www/html/
+
+index.html
+
+
+/etc/httpd/conf 
+httpd.conf -- change port number	 line number 45
+
+
+
+
+----------SonarQube------------------------
+
+Open source ,Code quality Management tool
+
+source code validation , review , coverage , analysis 
+
+
+Code Review:
+  Standards 
+Code Coverage:
+   unit test case
+   
+ Sonar
+Java 
+
+supports many lanaguage
+
+ Duplicate code
+ comments
+ Architecture and design
+	
+Sonar Installation:
+
+java 1.8
+sonar 7.8
+
+	Directories
+	
+	bin ,conf,logs , lib , 
+	/opt/sonarqube-7.8/conf
+	sonar.properties --change of port  
+                   #sonar.web.port=9000
+
+	
+	/bin ---linux..
+	
+	sonar.sh should run in normal user
+	-
+	useradd sonar
+	
+	Give the sudo access to sonar user
+visudo
+
+sonar   ALL=(ALL)       NOPASSWD: ALL
+
+Change the owner and group permissions to /opt/sonarqube-7.8/ directory.
+chown -R sonar:sonar /opt/sonarqube-7.8/
+chmod -R 775 /opt/sonarqube-7.8/
+
+su - sonar
+cd /opt/sonarqube-7.8/bin/linux-x86-64/
+
+./sonar.sh start
+
+	
+--
+administration 	--Security --Force user authentication - enable
+
+Architecture:
+
+Sonarqube Scanner -- Identify and reports genaration
+
+SonarQube Server
+
+ Compute Engine 
+   its catagories below
+			verneralibites
+			Bugs
+			Code Smells
+			
+  H2 -- store reports
+  
+  web server :
+     display reports  in dashboard
+	
+   there is a search Engine in dashboard fot quick response 
+   
+   
+   mvn  sonar:sonar # to run sonarqube 
+   plugging:GoalName
+   
+   plugging extarts sonar scanner
+   
+   sudo su - sonar
+   
+   cd sonar/7.8/bin /linux
+   
+   sh.sonar.sh start
+   if u run this in root user 
+  switch to sonar user
+check logs   
+   /opt/sonar7.8/logs
+    rm -rf /opt/sonar7.8/temp
+	
+cd 	opt/sonar7.8/bin/linux-x86-64/
+	sh sonar.sh start
+	
+	Executing sonar reports:
+	
+	Maven - Java
+
+pom.xml
+
+<properties>
+          SonarQube Server Details
+ <sonar.host.url>http://13.234.66.155:9000/</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>admin</sonar.password>
+
+</properties>
+	
+	
+	mvn clean sonar:sonar package
+	
+	Administration --Security--users-Token
+	
+	Token:
+	
+	7039883a8c91a3ca3ad24493e12ea32590421a12
+	
+	<properties>
+ --- SonarQube Server Details
+      <sonar.host.url>http://13.234.66.155:9000/</sonar.host.url>
+		<sonar.login>7039883a8c91a3ca3ad24493e12ea32590421a12</sonar.login>
+		
+		
+		mvn sonar:sonar
+		
+		
+project --
+Issues --
+Rules--
+Quality Profile-  Group of  Rules which are going to apply while executing the sonarqube report
+sonar way is the default QP
+Quality gates  --- collection of condition which are going to apply while executing the sonarqube report to mark as pass or 
+               fail.
+        
+Administration -- 
+    
+		security  -
+     		users 
+		
+		     users will cretaed under sonar-users group by default
+		
+		security  -
+       		groups
+						sonar-users
+						sonar -administrators
+						
+						
+		project -- to delete unknown projects
+       
+	   System--
+              info of sonarqube 
+
+
+SonarQube , Fortify 
+------------
+Mysql -- 3306 -port
+
+0-----------------------------------------------------------
+Nexus:
+jfrog Artifactory 
+
+SonarType Nexus
+Nexus is an OSS, Java Based, Artifactory Repo.
+
+It can be used to store the build artifacts(packages)
+
+and retrieve the build artifcats whenever we required.		  
+		
+		
+		java 1.8
+		nexus3.36.2
+		
+/opt/sonatype-work/nexus3/log -- logs of nexus server
+sonar.log
+
+/opt/nexus3.36.2/etc
+nexus-default.properties
+   application-port=8081  -- to change port
+
+   nexus3.36.2/bin
+     nexus -------file to start nexus  server
+	 
+	 http://3.110.191.155:8081/
+	 
+	 CAN CEHCK Password HERE 
+	 
+	 /opt/sonatype-work/nexus3/admin.password
+	 
+	 admin
+	 admin
+	 
+Server administration and configuration
+  Repository
+      Create Repository  (maven2 hosted - 2repo)
+             version policy   --Release 
+              version policy  -- Snapshot	
+
+
+http://3.110.191.155:8081/repository/Walmart-release/
+
+http://3.110.191.155:8081/repository/Walmart-snapshot/
+
+			  
+	 Nexus repo:
+	 
+	 In POM.xml
+<distributionManagement>
+	
+	    <repository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Releases Nexus Repository</name>
+	      <url>http://3.110.165.154:8081/repository/Walmart-release/</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>Mithun Technologies Snapshot Nexus Repository </name>
+	      <url>http://3.110.165.154:8081/repository/Walmart-snapshot/</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
+
+
+Nexus Credentials
+-----------------
+in  maven HD conf/settings.xml 
+
+<servers>
+..
+...
+.
+.
+ <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+	
+
+
+  </servers>
+  
+  
+  mvn clean sonar:sonar deploy
+  
+
+error: if we deploy same version then we will get below error:
+
+
+status: 400 Repository does not allow updating assets: Walmart-release
+
+
+if we want redeploy
+
+repositories -release  -Hosted -Deployment polices - Allow redeploy
+   
+-----
+   Maven proxy
+   
+  http://3.110.165.154:8081/repository/Wallmart-Proxy-repo/
+   
+   maven2 proxy 
+   mvn clean package
+      search dependencies in maven local repo ~/.m2/repository  1st then proxy and create build .war  </target>
+   and 
+ it will store the dependencies in remote repo 
+   mvn clean deploy
+      search dependencies in maven local repo ~/.m2/repository  1st then proxy and create build .war  </target> and 
+	      stores .war in remote  repo 
+	     and also 
+ it will store the dependencies in remote repo 
+ 
+   
+   In settings.xml
+   
+     <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Proxy repo</name>
+      <url>http://3.110.165.154:8081/repository/Wallmart-Proxy-repo/</url>
+ 
+    </mirror>
+  </mirrors>
+
+   
+   In POM.XML
+   
+   <repositories>
+
+  <repository>
+   <id>nexus</id>
+   <name>Proxy Repo</name>
+   <url>http://3.110.165.154:8081/repository/Wallmart-Proxy-repo/</url>
+  </repository>
+  
+</repositories>
+   
+   
+   
+---------
+Remote Repository:
+
+creating  remote repo for common lib to share in company 
+
+
+maven2 hosted
+
+once updated some   dependencies jar then take that tag and mention in POM.XML
+
+<dependency>
+  <groupId>com.mss</groupId>
+  <artifactId>mail</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+
+Need to configure remote repo url in POM.XML
+
+<repositories>
+			<repository>
+			      <id>nexus</id>
+			      <name>Remote  Repo</name>
+			      <url>http://3.110.165.154:8081/repository/mss-remote-repo/</url>
+			</repository>  
+	</repositories>
+	
+	aslo
+	
+	change in settings.xml
+	
+	     <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Remote repo</name>
+      <url>http://3.110.165.154:8081/repository/mss-remote-repo/</url>
+ 
+    </mirror>
+  </mirrors>
+	-----------
+	we have to give any one of them  proxy or remote repo details in POM.xml and settings.xml
+	
+	else we need to use  both in  in POM.xml and settings.xml
+	
+	maven2 group 
+	
+	
+	Need to configure group repo url in POM.XML  and settings.xml
+
+<repositories>
+			<repository>
+			      <id>nexus</id>
+			      <name>Group Repo</name>
+			      <url>	http://3.110.165.154:8081/repository/mss-group-repo/</url>
+			</repository>  
+	</repositories>
+	
+	aslo
+	
+	change in settings.xml
+	
+	   <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Group repo</name>
+      <url>	http://3.110.165.154:8081/repository/mss-group-repo/</url>
+    </mirror>
+  </mirrors>
+  
+  
+  
+  mvn clean package   ------- build
+      [INFO] Building war: /root/app/maven-web-application/target/maven-web-application.war
+   
+  mvn clean install - /root/.m2/repository
+
+       Installing /root/app/maven-web-application/pom.xml to 
+            /root/.m2/repository/com/mt/maven-web-application/1.0.0/maven-web-application-1.0.0.pom
+
+ mvn clean deploy
+
+
+Uploading to nexus: http://3.110.165.154:8081/repository/Walmart-release/com/mt/maven-web-application/maven-metadata.xml
+
+ -------
+ 
+ 401
+ 
+ credentails should same
+ id , username , password
+ 
+
+administration:
+
+   Security
+     
+	 Privileges
+	 
+	  
+      Roles:
+	     privileges:  
+		 
+		  add, delete ,,..
+  	    nx-admin
+	     nx-anonymous
+	 
+	 Users:
+	    
+		  admin
+		  anonymous
+	 
+     anonymous access
+          enable by default   --acces repo
+	
+	 LDAP
+	 
+	 
+	 
+Cleanup Polices:
+
+cleanup policies can be used to remove content from your repositories. These policies will execute at the configured frequency. 
+	 
+
+System
+Task
+
+Run 
+   
+  	   
+	http://3.110.165.154:8081/service/rest/v1/tasks
+   
+   
+   conf
+tomcat --> server.sml
+
+conf
+sonarqube --> sonar.properties
+
+etc
+nexus --> nexus-default.properties
+
+
+SQE
+ 2 repos
+   SQE-release
+   SQE-snapshot
+
+
+<dimst>
+
+
+remote-repo
+group-repo/
+proxy-repo/
+
+
+\=========Jenkins
+
+
+Bamboo:
+
+
+Jenkins is an OS, Java Based, CI tool.
+
+
+Oracle - Husdon -CI-2004 
+ 
+ Jenkins Community  -2011
+ 
+ CI-
+ 
+ Benefits:
+ 
+ Immediate bug detection
+ No integration 
+ 
+ 
+ 
+ JaCoCo Pluging-- generate report
+ 
+Installation--
+
+Login as a root user
+sudo su -
+
+Install Jenkins
+
+cd /opt/
+
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+yum install jenkins -y --nobest
+
+Enable and start the jenkins service
+
+systemctl enable jenkins
+
+systemctl start jenkins
+
+
+admin
+admin
+
+
+
+--
+PAT-
+
+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
+
+freestyle project
+
+Build:
+
+invoke top level maven projects
+
+mvn clean package
+
+Jenkins Home Directory  -- /var/lib/jenkins/
+
+
+------
+
+Global Tool Configuration
+
+--
+
+Sonar deatils in POM.xml
+nexus credentails  in /conf/settings.xml
+nexus repo in POM.xml
+
+Nexus Credentials
+-----------------
+in  maven HD conf/settings.xml 
+
+<servers>
+..
+...
+.
+.
+ <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+	
+
+
+  </servers>
+  
+
+repositories>
+			<repository>
+			      <id>nexus</id>
+			      <name>Group Repo</name>
+			      <url>	http://3.110.165.154:8081/repository/mss-group-repo/</url>
+			</repository>  
+	</repositories>
+	
+	aslo
+	
+	change in settings.xml
+	
+	   <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Group repo</name>
+      <url>	http://3.110.165.154:8081/repository/mss-group-repo/</url>
+    </mirror>
+  </mirrors>
+  
+  
+  /var/lib/jenkins/workspace/wallmart-dev/target
+  
+  Building war: /var/lib/jenkins/workspace/wallmart-dev/target/maven-web-application.war
+  
+  --------
+  
+  to deploy in tomcat need to use pluging called deploy to container 
+  
+  Pluging Manager
+  
+  
+Post-build Actions
+
+
+give credentails of user whoch we added in tomcat-users.xml
+
+
+Build Triggers
+
+
+POLL SCM
+      when there is an commit in the  git then only it will trigger job on scheduled  time 
+	  jenkins 
+Build Periodically
+      Trigger a job at scheduled time irrespective of change in the code.
+github Webhook
+      github only push the changes to jenkins to trigger the job
+	  
+Settings;
+
+   WebHook
+http://13.234.66.155:8080/github-webhook/
+
+Discard old builds:
+
+Abort the build if it's stuck:
+
+Add timestamps to the Console Output
+
+JACOCO  Pluging
+    stop the deployment if not met the condition like 80% of code  coverage
+  
+  
+IN Configure Jenkins 
+  
+ will configure mail 
+  
+  smtp.gmail.com
+  23:25:33 Email was triggered for: Always
+23:25:33 Sending email for trigger: Always
+23:25:33 Sending email to: harishkumarbr38@gmail.com harishkumarbr8@gmail.com
+23:26:33 Finished: SUCCESS
+
+------
+Jenkins Home Directory
+
+/var/lib/jenkins/
+
+jobs/
+  job info
+  
+  wallmart-dev/
+        builds/  nextBuildNumber  config.xml 
+		   12/
+		   13/
+		     log   
+			 
+			 
+workspace/
+    contains source code 
+   	wallmart-dev/               wallmart-dev@tmp/
+	src/  target/  pom.xml
+	
+	
+tools/
+
+  contains the software which installed on Global tool configuration
+
+users/
+  user info..
+  
+  users.xml
+
+plugins/
+   pluging info
+   
+   
+ freestyle Project  vs Maven Project Type
+ by default                    manul instal plugging- maven Project type ---- need to install  Pluging call 
+                                                        Maven Intrgreation Pluging
+ .any language               . java language
+ .install maven in            . maven can install in  only Global tool configuration
+   server or tool configuration 
+   
+   
+ plugin Management:
+
+Deploy  to Container  - tomcat
+ Deploy to weblogic - Weblogic - oracle
+ Websphere Deployer   -Websphere ()IBM
+ 
+
+ 
+ Restart of Jenkins:
+  3 ways:
+  
+  1)
+   systemctl restart jenkins
+   
+   2)
+     Through urls
+	http://13.234.66.155:8080/safeRestart	 
+  
+   http://13.234.66.155:8080/restart  
+   
+   
+  3) 
+    Through Pluggin called SafeRestart 
+  
+    Restart Safely  option in UI
+	
+	It wil call --
+	http://13.234.66.155:8080/safeRestart
+
+
+Are you sure you want to restart Jenkins? Jenkins will restart once all running jobs are finished. 
+
+
+  
+ http://13.234.66.155:8080/restart          # force restart
+ 
+     Are you sure you want to restart Jenkins? 
+
+ 
+---
+Next Build Number Pluggin
+ 
+to change to nextbuild number 
+
+1) through server 
+ 
+vi /var/lib/jenkins/jobs/wallmart-dev/nextBuildNumber 
+
+2) Pluggin call Next Build Number
+ we suppose to give greater than the current build number 
+     # can see this plugin in job level
+	  
+---
+JaCoCo 
+----
+SSH Agent
+#docker
+----
+Email Extension # Suggestion plugging
+
+--
+
+SonarQube Scanner
+ # directly configure SonarQube deatils in Jenkins only without configure in POM.xml.
+ 
+ ---
+ Audit Trail:
+ 
+ # can see this Plugin in configure Jenkins page
+ 
+ Audit 
+  
+   https://plugins.jenkins.io/
+	
+	---
+Job Configuration History:
+	
+maintain congutaion of the job 	 and restore the job 
+	  # can see this plugin in job level and system level 
+	
+---
+Schedule Build
+ 
+RUn a job at scheduled time only one time .
+---
+
+Build name and Description Setter:
+
+we can do Customer Build number and name setter while creating a job- build Env
+			 -------
+Blue Ocean
+
+---
+
+EXternal Plugin
+
+UCDeploy
+
+----			 
+
+Jenkins_Port =8080
+
+
+RHEL
+
+/etc/sysconfig
+jenkins  --file
+
+Ubuntu
+/etc/default 
+jenkins  --file
+
+------------
+
+Jenkins logs  available  on -/var/log/jenkins
+jenkins.log
+---
+Views:
+
+
+create view for usage
+
+
+Jenkins Security:
+
+ manage jenkins -- for admin
+ 
+ Creating users:
+ ------
+
+Security:
+ Manage users:
+    Create  User:
+	
+   # wecan see this users in /var/lib/jenkins/users/users.xml
+   
+    #by default if we create users in jenkins they will have  admin access .
+	
+	to remove  admin access and  give proper access  got to 	
+   Dashboard
+Configure Global Security
+
+LDAP- leightweight Directory Access Protocol
+
+
+In authentication process, the identity of users are checked for providing the access to the system. 
+While in authorization process, person’s or user’s authorities are checked for accessing the resources.
+ Authentication is done before the authorization process, 
+ whereas authorization process is done after the authentication process.
+
+
+	In authentication process, users or persons are verified.	
+	    While in authorization process, users or persons are validated.
+		
+		---
+		Configure Global Security
+Role-based Authorization Strategy  Plugin for Authorization
+------
+Authorization:
+ Matrix-based security
+ Project-based Matrix Authorization Strategy
+ Role-Based Strategy
+		
+	-----------
+ Project-based Matrix Authorization Strategy
+::Enable project-based security
+ add individual users including  admin ad provide access accordingly.
+ 
+ 
+ ---------
+ Build with Parameters:
+ 
+ 
+ */${BranchName}
+ $RevsionNumber
+		
+echo "................"
+echo "selected branch name is : "$BranchName
+echo "................"
+echo "selected branch name is : $BranchName"
+echo "................"
+echo "Entered Revsion  is : $RevsionNumber"
+echo "................"
+echo "Entered Revsion  is "$RevsionNumber	
+
+
+-------
+Pipeline project type:
+
+  vs FreeStyle vs  maven Project Type
+  
+ Intrgreation is easy
+ scripts ,code
+ 
+ 
+ Always  whenb we run job in jenkins it will point to below path
+ 
+ /var/lib/jenkins/workspace/JobName
+ 
+ /var/lib/jenkins/workspace/SQE
+                                     target/*.war
+
+
+ a) Scripted Way:
+ 
+ node respresent in which server it will run 
+ by default  master 
+ node()
+ or
+ node('master')
+ 
+ --
+ /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven3.8.3
+
+${mavenHome}
+
+maven-3.8.2
+maven3.8.3
+
+rsync
+
+ssh agent plugin to connect the server with credentails , with user name and pemfile or paswd .
+scp command: copy war file to to another  server  
+
+ec2user is copying the file to webapps/ directory but ec2-user has ro access to write to webapps directory	
+chmod -R 777 webapps/
+ --
+ node()
+{ 
+    def mavenHome = tool name: "maven-3.8.2"
+    
+    stage('Clone the Code'){
+     
+        sh 'echo "---cloning the code from Github---"'
+        
+        git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+
+    }
+        
+        stage('Build the code'){
+		// mvn clean package -Dmaven.test.skip=true
+		//mvn -Dmaven.test.failure.ignore=true clean package
+        sh "${mavenHome}/bin/mvn clean package -Dmaven.test.skip=true"
+        
+    }//Build
+	
+	 stage('Execute Sonar Report'){
+        
+        sh "${mavenHome}/bin/mvn sonar:sonar"
+        
+    }//Sonar
+    stage('Depoy to remote Repo'){
+         sh "${mavenHome}/bin/mvn deploy"
+    }// to nexus
+	
+	stage('Depoying to Tomcat'){
+        sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
+
+      sh "scp -o strictHostKeyChecking=no target/maven*.war 
+	  ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
+	  
+}//ssh
+
+        
+    }//tomcat   scp: /opt/apache-tomcat-9.0.56/webapps//maven-web-application.war: Permission denied
+	
+	stage('mail'){
+	}
+	
+}
+
+
+####
+
+Jenkinsfile  by default file we can have jenkins pipeline
+
+//echo "GitHub BranhName ${env.BRANCH_NAME}"
+  //echo "Jenkins Job Number ${env.BUILD_NUMBER}"
+  echo "Jenkins Node Name ${env.NODE_NAME}"
+  
+  echo "Jenkins Home ${env.JENKINS_HOME}"
+  echo "Jenkins URL ${env.JENKINS_URL}"
+  echo "JOB Name ${env.JOB_NAME}"
+  
+----
+ b)Declartive Way
+ 
+ 
+ agent any means - any node to run this script
+agent{
+ label: 'dev'
+}
+
+---
+
+pipeline{
+
+agent any
+/*
+agent{
+label 'NodeName'
+}
+*/
+
+
+pipeline{
+
+agent any
+tools {
+maven 'maven-3.8.2'
+}
+
+options()
+{
+timestamps() // it will add timestamps
+buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '6', numToKeepStr: '6'))
+ // delete the old builds
+}
+triggers{
+//Poll SCM
+pollSCM('* * * * *')
+//BuildPeriodically
+cron('* * * * *')
+//GitHub WebHook
+githubPush()
+}
+
+    stages{
+        stage('Cloning the code'){
+            steps{
+                 sh 'echo "---cloning the code from Github---"'
+        
+        git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+
+            
+            }//step
+        }//stage
+
+        stage('Building the war file'){
+        steps{
+        sh "mvn clean package -DMaven.test.skip=true"
+        //mvn clean package -Dskip.Tests
+        }
+        }
+        
+        stage('sonar Report'){
+        steps{
+        sh "mvn  sonar:sonar"
+     
+        }
+        }
+        
+        stage('INTO Remot Repo'){
+        steps{
+        sh "mvn clean deploy"
+     
+        }
+        }
+        stage  ('Depoying to Tomcat'){
+       steps{
+        sshagent(['74499b02-e88e-440d-aaaa-0dd9c916e074']) {
+
+      sh "scp -o strictHostKeyChecking=no target/maven*.war 
+	  ec2-user@3.109.202.21:/opt/apache-tomcat-9.0.56/webapps/"
+     }//shh
+     }//step
+     }//stage
+    }//stages
+	
+	post{
+	
+	success{
+	
+	}
+	
+	failure{
+	  
+	  }
+	  abort{
+	  
+	  }
+	  always{
+	  
+	  
+	  }
+	}
+	
+	
+}//pipeline
+------------------------
+
+
+Example -2
+----------
+pipeline {
+    agent any
+stages {    
+  stage('CreateDirsandFiles'){
+  steps{
+  sh "touch test.py"
+  dir('/tmp/pipeline/'){
+  sh "touch pipeline.txt"
+  sh "touch test.sh"
+  }
+  }
+  }
+
+}
+}
+
+Example -3
+
+pipeline {
+    agent any
+stages {    
+  stage('run Java'){
+  steps{
+
+  sh "java -jar jarname"
+  }
+  }
+  }
+
+}
+}
+
+---
+
+Build with parameter with declartive :
+
+pipeline {
+    agent any
+    
+    parameters {
+    choice(name: 'BranchName', choices:['master','development','dev','qa'],
+	description: 'Using this we can pass the branch names' )
+	
+	string defaultValue: 'NA', description: 'Please enter RevisionNumber', name: 'RevisionNumber', trim: true
+	
+	
+    string(name: 'PersonName',  defaultValue: 'Bhaskar Reddy', 
+	description: 'This Parameter, will use to pass the persona name')
+    }
+    stages {
+        stage('CheckoutCode') {
+            steps {
+               git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+             sh "echo The persona name is: ${params.PersonName}"
+			 
+			 sh "echo  RevsionNumber is : ${params.RevisionNumber}"
+			  sh "echo  Branch is : ${params.BranchName}"
+             }
+        }
+    }
+}
+
+--------------
+
+pipeline {
+    agent any
+
+ 
+    parameters {
+    choice(name: 'BranchName', choices:['master','development','dev','qa'],
+	description: 'Using this we can pass the branch names' )
+	
+	string defaultValue: 'NA', description: 'Please enter RevisionNumber', name: 'RevisionNumber', trim: true
+	
+	
+    string(name: 'PersonName',  defaultValue: 'Bhaskar Reddy', 
+	description: 'This Parameter, will use to pass the persone name')
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                
+                
+                git branch: '${BranchName}', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead',
+        url: 'https://github.com/harishgowdabr/maven-web-application.git'
+             sh "echo The persona name is: ${params.PersonName}"
+			 
+			 sh "echo  RevsionNumber is : ${params.RevisionNumber}"
+			  sh "echo  Branch is : ${params.BranchName}"
+            }
+        }
+        
+          stage('CreateDirsandFiles'){
+  steps{
+  sh "touch test.py"
+  dir('/tmp/pipeline/'){
+  sh "touch pipeline.txt"
+  sh "touch test.sh"
+  }
+  }
+  }
+        
+     
+     
+        
+    }
+}
+
+--
+Multi Branch pipeline Project Type
+
+create 50 Branches at one shot .. if we have common file 
+
+..
+
+FileName - Jenkinsfile  -- 
+
+Go to git repo-- search for Jenkinsfile-Declarative-Pratice -- 
+file name in all the branches, for those branches it wil create a Job.
+
+Scan Multibranch Pipeline Triggers--- feature act li poll scm chmages if found triigers build
+
+Scan Multibranch Pipeline Now -- will trigger build manually.
+
+
+Blue Ocean will use this MUlti branch pipeline concept
+
+
+--------
+
+Jenkins Backup:
+
+Thin backup pluggings:
+Backup:
+
+
+  -- we can seee in manage Jenkins -Uncategorized
+ 
+ Thin backup 
+ 
+ 
+ settings
+    path to store the backup:
+	/var/lib/jenkins/
+	                   mkdir /var/lib/jenkins/jenkinsbackup
+					    it will create as Root user
+						so change owner n group
+						
+						chown -R jenkins:jenkins backup
+						
+						
+	/var/lib/jenkins/backup  in jenkins UI  in setting s ThinBackup
+
+Max number of backup sets -- 100
+  -1 number of backup 	
+  
+  
+  
+  Backup schedule for full backups *** 1hr
+  
+  * * * * *
+Backup schedule for differential backups   # updated backup
+
+
+
+Jenkins Migration:
+
+Jenkins 2.289.3  version
+
+1) acces too jenkins:
+ Install jenkins in new server with same version as in old server .
+ It will create /var/lib/jenkins/ directory in new server  rename it to jenkins_bak
+  stop it 
+ copy the configure file jenkins file from old server (/etc/sysconfig   , /etc/default) to new server 
+ 
+ start it 
+  
+ 2)  Job Import  Plugin  
+ 
+ install in new server
+    give credentails of jenkins url of old server
+	
+	---
+	
+	
+	Master Slave Architecture:***
+	
+TCP /IP Protocal
+
+Connection Type is SSH	
+	
+	
+	job info is maintain in master only.
+	
+	
+	Source code is maintain in Slave.
+		
+labelname is collection of nodes avilable node it wil run he job
+
+use lables so that it wil act as Load balancing..
+	
+	------------
+	
+	Manage Nodes and Clouds
+	
+	instal java and  Git in Nodes /slaves 
+	
+	 
+	create  path to have node directory in node server
+	mkdir node1
+	
+	/home/ec2-user/node1
+
+
+3.110.179.182 -- node1
+	
+	
+	
+	INFO: Both error and output logs will be printed to /home/ec2-user/node1/remoting
+<===[JENKINS REMOTING CAPACITY]===>channel started
+Remoting version: 4.7
+This is a Unix agent
+Evacuated stdout
+Agent successfully connected and online
+
+
+/home/ec2-user/node1/remoting
+
+remoting.jar  # with this jar only nodes n master will communicate
+
+to run the job in nodes -- go to job n configure in genaral -Restrict where this project can be run
+
+label expression (select node name r label name)
+
+	For Pipeline project type
+
+
+ node(nodeName/LabelName)
+{ 
+
+--
+ node('wallmart-node')
+{ 
+
+
+ node('nodes')
+{ 
+------
+
+pipeline {
+    agent{
+	label : 'nodes'
+	}
+	
+	-----
+	
+	pipeline {
+    agent{
+	label : 'wallmart-node'
+	}
+	----
+	Number of Executors
+	
+	in node configure page
+	
+	------------
+	
+	
+	Jenkins shared Libs:
+	
+	
+	Reuse of pipeline scripts
+	
+	
+	1:create scripts and store in git
+	
+	 steps 2  Add GitHub Shared Library Repository to JenkinsManage 
+	 
+	 Jenkins- Configure System -Global Pipeline Libraries
+
+sharedLibs
+
+    3 :  to use this  shared scripts
+	
+	
+To access the shared libraries, in the Jenkinsfile (declarative pipeline)
+	   in  pipeline  job only
+	   
+	@Library('sharedLibs') _
+pipeline{
+
+agent{
+label : 'wallmart-node'
+}
+tools {
+maven 'maven-3.8.2'
+}
+         agent {
+		  label: 'nodes'
+		 }
+             stages{
+                 stage('Gettimg code from Git'){
+                     steps{
+                         git branch: 'dev', credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead', url: 'https://github.com/harishgowdabr/maven-web-application.git'
+                     }
+                 }//
+                 
+                 stage('Building file'){
+                     steps{
+                         //sh "mvn clean package"
+                         stages('Build')// from sharedLibs
+                     }
+                 }//
+                 
+                 stage('Sonar report')
+                 {
+                     steps{
+                         //sh mvn sonar:sonar
+                         stages('SonarQube Report')
+                     }
+                 }
+             }
+               }	
+			   
+-----------
+
+Jenkins CLI:
+
+
+jenkins-cli.jar  download 
+
+ip:8080/cli 
+/home/mobaxterm/Desktop/DevOps-Cloud/jenkinscli
+
+
+java -jar jenkins-cli.jar -auth admin:admin -s http://13.234.66.155:8080/ -webSocket help
+
+			   
+	JENKINS_USERNAME=admin
+	
+			   11754699d36ef07df95344c0ad78dea078
+			   
+			 jenkinsUserName=`grep JENKINS_USERNAME jenkinsCredentails.properties.sh | cut -d "=" -f2`
+jenkinsPasswordToken=`grep JENKINS_TOKEN jenkinsCredentails.properties.sh | awk -F = '{ print $2 }'`  
+			   
+java -jar jenkins-cli.jar -s $jenkinsUrl -auth $jenkinsUserName:$jenkinsPasswordToken -webSocket build 
+		          $jobName -s -v -p BranchName=$branchName  -p RevisionNumber=$RevisionNumber   
+				  
+------------				  
+	CI/CD for Node js Project
+
+	nodeJS  Pluggin
+	
+	
+	GLobal tool Configuration --
+	  
+	   NodeJS - NodeJs17.40
+	   
+	   
+	   
+	 
+node{
+
+stage('CheckOutCode')
+{
+git credentialsId: '45ea0ad7-34b3-4ae2-8be8-0b1432262ead', 
+url: 'https://github.com/harishgowdabr/nodejs-app-mss.git'
+}
+
+stage('Build')
+{
+nodejs(nodeJSInstallationName:'NodeJs17.40'){
+sh "npm install"
+}
+}
+
+stage('ExecuteSonarQubeReport')
+{
+nodejs(nodeJSInstallationName:'NodeJs17.40'){
+sh "npm run sonar"
+}
+}
+
+/*stage('UploadArtifcatsIntoNexus')
+{
+nodejs(nodeJSInstallationName:'NodeJs17.40'){
+sh "npm publish"
+}
+}
+*/
+stage('RuntheApp')
+{
+//sh "node app.js"
+sh "npm start &"
+}
+
+}
+
+
+
+
+
+
+Maven Java         Node Js
+----------         -------
+pom.xml            package.json
+
+mvn sonar:sonar     npm run sonar (OR) node sonar-project.js
+
+sonar details in          sonar details in sonar-project.js
+ Pom.xml
+ 
+mvn deploy         npm publish
+
+nexus details      nexus details in
+in POM.xml            .npmrc
+
+
+to get nexus token for node js app
+echo -n "username:password" | openssl base64
+
+echo -n "admin:admin"  | openssl base64
+
+------------------------------------------------
+
+
+ node_modules
+  
+  
+  
+  
+  ---sonar-project.js
+   Sonar details
+    <sonar.host.url>http://13.234.66.155:9000/</sonar.host.url>
+		<sonar.login>7039883a8c91a3ca3ad24493e12ea32590421a12</sonar.login>
+		
+		
+		-----------------
+		
+		
+		Resume:
+		
+		HarishKumarBR_5Years_DevOps.doc
+		
+		
+		----------------------
+		Monitoring tools:
+		
+Application Monitoring tools
+----------------------------
+
+NewRelic
+AppDynamics
+DataDog
+Nagios
+Zabbix
+Grafna and Prometheous --> K8s 
+
+Cloudwatch --> Service --> AWS
+
+
+Log Monitoring tools
+--------------------
+
+Splunk
+Logentries
+
+ELK  Stack --> Elastic Search, Logstash and Kibana
+
+
+
+
+wallmart
+
+wallmart.log
+
+ERROR
+
+
+NewRelic + PagerDuty
+
+
+newrelic
+
+harishkumarbr8@gmail.com
+
+H@r!$h1234
+
+
+
+
+Very useful video for Jenkins Admin user password reset.
+
+https://youtu.be/TnbzCae--X0
+
+Very useful video for Jenkins Pipeline Parallel Stage execution.
+
+https://youtu.be/KOJXR8CHpKI
+
+---------------------
+
+AWS:
+
+requires to hostour apps
+
+servers
+databases
+Storage(disk)
+Networking
+Routers
+Switches
+Cables
+Firewalls.....
+
+	
+Application
+-->
+Database
+-->
+OS
+-->
+Haraware	
+
+Data Center    physical Machines
+
+all dev , operation teams connected  to server to host, maintain ,manage apps 
+
+challengers:
+
+cost
+maintainace
+Scalability
+
+power supply
+coolling system
+
+capital expenditure -capex
+
+investment
+physical security
+data security
+
+support engineers --
+
+Maintainces effort
+
+
+Scaling:
+
+ On primise Infrastructure :
+ 
+ 
+ takes time to delivery the required infrastructure
+  
+  Datacenter Infrastructure management
+------------------------------------------------------
+1.	Dedicated space
+2.	High bandwidth
+3.	Redundant power supply
+4.	Support Availability
+5.	Leadership Experience
+6.	Time consuming
+7.	Higher maintenance Effort
+8.	Capacity Planning
+
+Business requirement
+-------------------------------
+1.	High Availability
+         Data and application should be accessable in anytime/ allways avilable
+2.	Fault Tolerant
+          Ability to withstand the failures
+3.	Scalability:
+          Increases r deceases the capacity of the infrastructure via statically
+4.	Elasticity
+         grow r Shrink the capacity of the infrastructure resources dynamically
+Big Billion offers:
+
+Cloud Service:
+
+  Services on demand, pay as you go model
+  Any Service made available to the users on demand via internetfrom a cloud computing providers servers
+
+example : Zomato , swiggy  
+
+Cloud Computing
+------------------------
+Delivery of comuting services like servers, storage, databases etc over internet hosted 
+  remote data centers manages by Cloud Service Providers CSP		
+		
+	Advantage of cloud
+---------------------------
+1.	cost-Effectiveness - Pay as you Go
+      eliminates CAPEX
+2.	scalability and elasticity
+        vertically and horizontal scalability
+3.	Reliable and High Availability
+4.	speed or Agility
+      get infrastructure in fraction of minutes
+5.	Deploy globally in minutes
+          expand the business globally
+6.	Security	
+
+
+Types of cloud
+---------------------
+1.	public cloud - AWS, GCP and Microsoft Azure
+        Owned and operated by    3 rd party CSP
+2.	private cloud - Openshift and IBM Cloud
+       used by single business organisation , physically located
+	      
+3.	Hybrid cloud
+      combination public and private
+        some r own data center and some are cloud.
+4.	Multi cloud
+     organization depends on multicloud  
+	 appls on AWS, application on Azure
+	 
+	
+Popular Cloud providers
+---------------------------------
+•	AWS
+•	Microsoft Azure
+•	GCP
+•	VMware
+•	IBM Cloud
+•	Oracle Cloud
+•	Rackspace
+•	Redhat
+•	Salesforce
+	 
+	Cloud Service Models:
+
+•	On Premises - Networking, Storage, servers, Virtualization , O/s, Middleware, Runtime, Data , Applications(By own)
+•	IAAS - Networking, Storage, servers, Virtualization
+        EC2  (Os , java install , )
+•	PAAS - Networking, Storage, servers, Virtualization , O/s, Middleware, Runtime
+        EKS, Elastic beans stack
+•	SAAS - Networking, Storage, servers, Virtualization , O/s, Middleware, Runtime, Data , Applications	
+         github, sonar Cloud, office 365
+		 
+	
+	
+	Software --just use application
+	 Platform - development of application and  use application n managing data
+	Infrastructure - integration of infra n development of application and  use application
+	
+	
+	-----
+	
+	Car  
+	
+	On premise ---Own  car
+	
+	IAAS -- Car leased
+	
+	PAAS - Car Hired
+	
+	SAAS - Taxi
+	
+	
+	Amazon Web Service:
+	
+	
+	Retail  , E-commence
+	
+	Sub organisation of Amazon.com 
+	
+AWS Global Infrastructure
+------------------------------------
+                            Region - 25, planning 8 more
+                            Availability Zones - 81, planning 24 more	
+	
+	84 Availability Zones within 26 geographic regions around the world
+	
+	24 more Availability Zones and 8 more AWS Regions in Australia, Canada, 
+	         India, Israel, New Zealand, Spain, Switzerland, and United Arab Emirates (UAE).
+Regions:
+
+Geographical Locations
+ logical name 
+
+AvailabilityZones -AZ:
+
+Acutal Data Centre
+Isolated Locations	
+	Phyiscal
+	
+
+How to choose the right region?
+-------------------------------------------
+•2	pricing
+•1	End User/Customer Location
+•3	Latency (To check the latency https://www.cloudping.info/ or https://ping.psa.fun/ )
+         access time of ur application
+•4	Security and Compliance Requirement
+•5	Service Availability
+	
+	
+	1a -A.Z  --250KM ---	1b - A.Z--- 250Km - 1c A.Z
+	
+	Multi Region Applications
+	
+	
+	Asia Pacific (Mumbai)
+ap-south-1
+	Europe (Frankfurt)
+eu-central-1
+
+
+
+EC2
+
+Elastic Compute Cloud
+
+
+Computer in Cloud
+as many server u required
+scale up , down to handle changes
+
+
+
+
+Computer:
+
+OS
+CPU/Memory
+HardDisk
+Network Card
+Firewalls
+
+EC2 Instance components
+-----------------------------------
+•	AMI's  - Amazon Machine Images - pre configured package that contains OS and some application
+•	Instance type
+•	EBS(local storage)
+•	IP Addressing
+•	Security Groups
+•	KEY pair
+
+
+Once we  create account in AWS -we can create max 20 instances per EC2 region 
+
+8 cpu and 32gb Memory   -- application
+8 cpu and 16gb Memory   --- Jenkins, k8s, Docker Swarm
+4 cpu and 8gb Memory  -- LB ,Apache/Weblogic
+
+Instanse type:
+
+General Purpose
+          Balanced Memory , CPU
+		  
+		  A, M, T Series
+		  A2
+		  M4 , M5 , M5a 
+          t2 , t3, t4
+Compute Optimized
+         More CPU & RAM  , batch process ,High performance computing 
+	    C series
+	     C4, C5
+Memory Optimized
+        More RAM  , in memory DB  in-memory caches, and real time big data analytics
+         R , X ,Z 
+		 R5, R4, X1 z1d
+   High memory Optimized Instances
+
+      U  series
+Accelerated Computing
+        Graphical processing , Machine learning
+		P , G , F Series
+		P3, P2, P4, G5, G3, F1
+         
+Storage Optimized
+        better read and write opertaion to disk, low latency sequential read and write access to 
+		               very large data sets on local storage
+	    I D H Series
+		I3 D2 D3 H1
+
+Instance Family & Type
+---------------------------------
+1.	General purpose – balanced memory and CPU (t2, m3, m4)
+2.	Compute optimized – More CPU then RAM (c3, c4, cc2) – C types
+3.	Memory optimized – More RAM – M type and R type
+4.	Storage optimized – Low latency (d2, i2, i3) – D and I type
+5.	Accelerated computing (GPU) – Graphics optimized
+6.	High memory Optimized – High RAM, Nitro system
+7.	Previous generation
+8.	EBS Optimized (Option for higher IOPS performance)
+
+
+
+EC2 Purchasing Option
+----------------------------------
+
+
+On Demand: -
+------------------
+•	Most expensive purchasing option
+•	Most flexible purchasing option
+•	You are charged only when instance is Running(billed by hour)
+•	You can provision/terminate an instance anytime
+•   Irregular Workloads,Pricing is per instance hour
+
+Reserved: -
+-----------------
+  Scheduled Reserved Instances
+•	Allows us to purchase an instance for a set time period (1/3 yrs
+•	Significant price discount
+•	Once you buy a reserved instance, we are responsible for the entire price  
+       regardless of how often we use it
+
+Spot: -
+-----------
+•	Amazon sells the unused instances, for short amount of time at lower price
+•	We can Bid on an instance type & only use when the spot price is equal to or below your bid price
+     Charged by hour
+•	Spot price fluctuate based on supply & demand in market
+
+
+
+Dedicated Instance
+--------------------------
+•	Instances running on hardware that’s dedicated to you. 
+    If you stop/start instance, you can get some other hardware somewhere else.
+
+Dedicated host
+---------------------
+•	Physical dedicated server for your use. It’s always the same physical machine for as long as you are paying.
+
+Instance Family & Type
+---------------------------------
+1.	General purpose – balanced memory and CPU (t2, m3, m4)
+2.	Compute optimized – More CPU then RAM (c3, c4, cc2) – C types
+3.	Memory optimized – More RAM – M type and R type
+4.	Storage optimized – Low latency (d2, i2, i3) – D and I type
+5.	Accelerated computing (GPU) – Graphics optimized
+6.	High memory Optimized – High RAM, Nitro system
+7.	Previous generation
+8.	EBS Optimized (Option for higher IOPS performance)
+
+Instance Type Components
+---------------------------------------
+•	Family: Categorizing instance types based on what they are optimized for
+•	Type: subcategory for each family type
+•	vCPUs: number of virtual CPUs the instance type uses
+•	Memory: Amount of RAM the instance type uses
+•	Instance Storage(GB): local instance storage volume(hard drive)
+•	EBS Optimized Available: Indicates if EBS optimization is an option for the instance type
+•	Network Performance: Rating based on its data transfer rate(bandwidth)
+
+
+How are we charaged for using EC2?
+
+1>  Purchasing options
+2> Instance family and type								
+3> EBS Optimized
+4> AMI Type
+5> Data Trans																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										fer
+6> Regions
+
