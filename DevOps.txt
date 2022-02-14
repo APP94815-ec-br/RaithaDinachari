@@ -19,7 +19,12 @@ check if port is listning or not using netstat
 Check the logs of your application or software.
 
 
+EFK- helm:
 
+
+Elastic stack
+
+collect , process 
 
 
 
@@ -5446,8 +5451,7 @@ Security Groups-SG
 -------------------------
 1. Act as a firewall for any EC2 Instance
 2. Control the traffic by Inbound and Outbound rules
-3. Security Group is stateless means you have to configure inbound and outbound separately for any traffic.
-
+3. SG is stateful means if u allow rule in inbound it automactically allwoed in outbound 
 Network security 
 Inbound rules and Outbound rules
 5 SG per EC2  instance
@@ -5459,7 +5463,7 @@ statefull - return traffic is automactically allowed
 NACL 
 Subnet level
 Stateless
-It permit allow aswell deny
+It permit allow as well deny
 Number listof Rules
 
 7>>>>>Key Pair
@@ -5688,11 +5692,10 @@ sudo mount /dev/xvdf  /var/lib/jenkins/  ## temperory mounting
 	UUID=b074e53e-e0f0-4dc8-876d-e6093f3d8404  /var/lib/jenkins/  ext4  defaults,nofail  0  2
 
 
-
   to validate entries are correct in fstab
   
   sudo unmount /var/lib/jenkins/
-  sudo mount -a   # mounted back as there i an entry in fstab
+  sudo mount -a   # mounted back as there  an entry in fstab
   
   if any error revert sudo mv /etc/fstab.orig /etc/fstab 
   
@@ -5701,11 +5704,40 @@ sudo mount /dev/xvdf  /var/lib/jenkins/  ## temperory mounting
 	sudo chown jenkins:jenkins -R /var/lib/jenkins
 	service jenkins restart
 
-we can modify the EBS Volume while using it we can increase and change type aslo
+we can modify the EBS Volume while using it we can increase and change volume type aslo
 
 	Volume Created and attched and formated and mounted
 	
-NO DISK SPACE 
+NO DISK SPACE LEFT ON THE DECIVE:
 
 
+Lab: -
+-------
+Create an EC2 Instance and create Volume in same AZ and attach the volume to EC2.Create filesystem on 
+the mounted Volume by mkfs.ext4 /dev/xvdf and then mount 
+any directory to the mounted volume by mount /dev/xvdf /var/lib/jenkins.
+----
 
+	g4ad.2xlarge
+	
+	
+EBS Snapshot
+-------------
+Snapshot is nothing backup of your EBS Volumes.
+
+Snapshot are usefull to recover /restore  the date  in case  of any failure in EBS volume
+useful to migrate our data from one AZ to  another AZ  within region or we can move from 1 region to another region 
+
+volume - snapshot -volume
+5000 EBS volumes per account
+upto 1000 snapshot per account
+ Snapshot stores in s3 cant access it direclty , throgh APIs only
+  EBS volume - Az specific
+  Snapshot - region specific
+  
+  
+  take snapshot of non - root volume while running also
+    take snapshot of  root volume need to stop it 
+
+
+server migration to one Az to another Az , or 1 region to another  region means data migration
