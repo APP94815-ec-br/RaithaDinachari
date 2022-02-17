@@ -2391,22 +2391,28 @@ scp filename userName@ip:/tmp/
 or
 scp filename userName@hostname:/tmp/
 
-df -hard
+df -h  -- harddisk utlization 
 du -sh
 
 
-free
+free -kh - ram size
 
 mail
 
 
 wget
 
-curl
+curl -o
 
-tee
+tee 
+
+ls |tee  output.txt
+-- display output  in console adn aslo so store in the file 
 
 script
+ 
+ script -a  output.txt
+ exit
 
 cal
 
@@ -5578,7 +5584,7 @@ EBS:
 max size of EBS volume
 1600GB /16TB
 
-mn size of EBS volume
+min size of EBS volume
 1GB
 
 Note:-
@@ -5718,15 +5724,15 @@ the mounted Volume by mkfs.ext4 /dev/xvdf and then mount
 any directory to the mounted volume by mount /dev/xvdf /var/lib/jenkins.
 ----
 
-	g4ad.2xlarge
+	g4ad.2xlarge  - 16 32
 	
 	
 EBS Snapshot
 -------------
 Snapshot is nothing backup of your EBS Volumes.
 
-Snapshot are usefull to recover /restore  the date  in case  of any failure in EBS volume
-useful to migrate our data from one AZ to  another AZ  within region or we can move from 1 region to another region 
+.Snapshot are usefull to recover /restore  the date  in case  of any failure in EBS volume.
+.useful to migrate our data from one AZ to  another AZ  within region or we can move from 1 region to another region 
 
 volume - snapshot -volume
 5000 EBS volumes per account
@@ -5734,10 +5740,348 @@ upto 1000 snapshot per account
  Snapshot stores in s3 cant access it direclty , throgh APIs only
   EBS volume - Az specific
   Snapshot - region specific
-  
+  Incremental Snapshot
   
   take snapshot of non - root volume while running also
     take snapshot of  root volume need to stop it 
 
 
 server migration to one Az to another Az , or 1 region to another  region means data migration
+
+one Az to another Az  of volume::
+
+create snapshot in 1 az of volume 
+action -create volume in another AZ using this snapshot
+         	attach volume to the server  in same AZ
+			mount 
+
+dev/sda1 --root
+
+1 region to another  region of volume
+
+create snapshot in 1 az /region of volume 
+action -copy snapshot to another region 
+        create volume  from snapshot
+		attach volume to the server in same AZ
+		mount (permanent/temperory)
+		
+
+We  cant attach snapshot direclty to the server
+Volume created from snapshot not required ot formatting if  volume direclty created and  attached this need formated 
+ like sudo  mkfs.ext4 /dev/xvdf
+ 
+
+
+snapshots can be taken two types: -
+
+1. Manually using AWS GUI, CLI, APIS etc
+
+Volume snapshot or Instance snapshot
+
+   check mark on the volume -> Actions -> Take a snapshot (no need to stop the server)
+
+2. By creating Lifecycle manager (For periodically based on policy)
+   Life cycle manager -> Specify settings -> On the basis of tags on that volume
+   Target resource type -> volume
+   Target resource tags -> Name and value
+   Schedule details
+   Retention Type   - 6 it wil maintain recent 6 snapshots
+   
+   
+   
+ 
+Restoring: -
+-------------
+In same region , different A-Z -> 
+       -->  Create Snapshot 
+		 
+             Actions -> create volume
+
+In different region - > use Actions -> copy -> Choose Region and then convert the Snapshot to volume in that region.
+
+Lab1:- Take a snapshot of the Jenkins Volume and copy that snapshot to Singapore Region. create an Instance in Singapore Region and install Jenkins, and mount the snapshot after converting to volume to Jenkins EC2
+
+Lab2: - Recovery of Key file
+
+1) Stop Server Which you lost pem file
+2) Create a server with new pem file in same AZ where you have server for which you lost pem file.
+3) Detach root volume from the server for which u lost pem file and attach to new server as a additinal volume.
+4) In New Server mount the volume and copy latest public key & un mount
+ 
+ sudo mkdir -p /mnt/tempvol/
+
+ sudo mount /dev/xvdf2 /mnt/tempvol/
+
+
+ cat /home/ec2-user/.ssh/authorized_keys >> /mnt/tempvol/home/ec2-user/.ssh/authorized_keys
+
+ umount /mnt/tempvol/
+ 
+ 
+ 
+5) Detach volume from new server and attach back to existing server as a root volume(Root Device Type
+/dev/sda1)
+
+
+6) We can start the server and we can access using new pem file.
+
+In Recovery Server
+====================
+
+
+Root Device Type
+/dev/sda1
+
+Additinal Volume Type
+
+/dev/sdf
+===================
+  Where do EBS snapshots will be stored/maintained by AWS?--S3
+
+EBS snapshots will be maintained in S3 buckets by AWS. But not available in our account.
+  -----------
+ ------------------
+ Attach same volume/storage to 2 diff server
+ 
+ shared volume/storage
+ 
+ NFS - Network File System
+ 
+ EFS -- AWS Service
+ Its a manage NFS 
+ managed Fle Stored for EC2
+ Root volume will be EBS not EFS
+ 
+ hared storage (EFS)
+-------------------------------
+We can mount this storage simultaneously.
+
+EFS - Managed NFS -> you no need to configure NFS, managed by AWS. There is no fixed capacity,
+ it can grow and shrink automatically.
+
+Lab: - Create two EC2 in different AZ. Create EFS storage and share between two.
+
+It can be shared to different AZ, Region or different Account.
+
+Search EFS -> Create file system -> Name, VPC, Availability and Durability (Regional,(Multiple AZ) One zone -(1 AZ)) - create
+
+It need NFS client or EBS client installed on the system to mount.
+
+NFS Port -2049
+
+Port open in SG which attach to EFS:
+
+Install NFS client on both system
+# yum install nfs-utils -y
+
+Open the security group port 2049 of shared volume. You can get the Security Group id from netwrk section of EFS volume.
+and add network range of VPC Cidr 
+
+
+2 diffrent server same storage/sharesd volume
+Mount the volume by below command
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 
+fs-01088cdc7ba63835e.efs.ap-south-1.amazonaws.com:/ <opt/one/two>
+--
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 
+fs-01088cdc7ba63835e.efs.ap-south-1.amazonaws.com:/ <anotherPath>
+							  
+							  
+							  
+Amazon FSX client - For windows 
+FSx - For windows
+ 
+ S3: -
+--------
+ simple storage Service
+Object Storage
+
+Without mounting we can read and write on Object Storage from anywhere.
+S3 use cases:
+
+S3 is perfect place to maintain application static files like images, docs, audios, video file
+S3 is perfect place to maintain application logs and backups.
+
+state file in terraform will maintain in S3.
+
+Data/object in S3 which we maintain wil have unique Id and Endpoint we can accces  the  oobject (file ) usimng HTTP and rest API
+
+S3 Bucket 
+
+Using AWS GUI ,CLI, API, SDK
+S3 global service but its a region specific.
+No OS in S3
+S3 Bucket name is unique accoss all regions and accounts
+
+from GUI max size upload is 160GB in S3.
+
+How many s3 buckets we can create in one AWS account by default?
+100 (Soft Limit). Can be extended this limit by working with AWS team.
+
+What is the max limit in s3 ?
+5TB/5000GB-- single file not s3 bukcet size
+
+
+Can we do s3 replication without versioning enabled?
+No
+
+
+Security in S3:
+Bucket level
+Object Level
+
+Public Access --> It's access for the objects in s3
+				by default Block Public access
+				
+				
+				
+Bucket policies-
+				json format
+
+ACL --> Access Controll Lists is can be used to grant/share buket with other AWS Accounts. 
+
+What is ARN in AWS?
+
+Amazon Resource Name --> It's unique way of identified each resource(service- AWS , ELB, VPC, S3) in AWS.
+
+arn:aws:<service>:<region>:<a.z>:<Id/NameOftheAWSResource>
+
+arn:aws:s3:::<nameofbucket>
+
+Prinipal (Who is  to access)- * means public, anyone 
+
+ Action -  what he will do
+ Resource ---AWS , ELB, VPC, S3
+
+arn:aws:s3:::julymithuntech1234/*
+here * means all the files in that bucket
+
+In Bucket Policy:
+
+
+{
+  "Id":"PolicyId2",
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"AllowIPmix",
+      "Effect":"Allow",
+      "Principal":"*",
+      "Action":"s3:*",
+      "Resource": [
+        "arn:aws:s3:::julymithuntech1234/*"
+      ],
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": [
+            "54.240.143.0/24"
+          ]
+        }
+      }
+    }
+  ]
+}
+
+
+versioning in S3:
+Keep object versions as its changes once we enable it .
+  to protect against accidental object/data deletionn or overwrites
+  Once we enable versioning we cant be disabled 
+bucket level versioning
+
+StorageClass and Obejct life cycle
+
+ charge in S3 :
+ Size of the  obejct -file and storageClass in which we are maintain object.
+ 
+ Object action  -->edit storageClass
+ 
+ StorageClass:
+ 
+.Amazon Standard               Default  -costly faster , durability ,performace, 3 copies in different AZ
+.Amazon  S3 Standard Infrequent Access IA  -- 
+.RRS - Reduced  Redundancy Storage //
+.Amazon  S3 One -zone IA	
+.Amazon  S3 Glacier
+.Amazon  S3 Glacier Deep Archieve 
+.Amazon  S3 Intelligent Tiering
+
+
+Storage Classes
+----------------------
+By default each object which is upload to S3 maintained in standard Storage class.
+S3 charges is based on the object size and storage class.
+
+1. Standard class ->
+    The files/data  which we are going to access frequently. 3 AZ
+2. IA (Infrequent Access) ->
+    The data is not going to access frequently for cost saving and less performance.3 AZ
+3. RRS/One zone (Reduced Redundancy Storage) -> 
+  Non critical $ Reproducible data. We can store in RSS.1 AZ
+ Chances to loss of data.
+4. Glacier->
+  Archival data we can store in glacier with very less price. When we retrieve the data from 3 AZ
+   Glacier it will be chargeable high. It take up to 4 hrs to read the data from Glacier. It is like a historical data.
+
+
+Object Life Cycle -
+
+ By creating Object Life Cycle rules we can transit objects from one storage class to another storage class and aslo
+ set an expiration(delete) object
+
+
+our S3 bucket  -Mangament - lifecycle rule 
+ 
+ 
+Object Transition & Expiration can be automate using Object Life Cycle Rules.
+--------------------------------------------------------------------------------------------------------
+
+Object Lifecycle -> we can transit & move objects from one SC to another SC and also we can set 
+expiration (delete) for the object using Object Life Cycle Rules.
+
+Management -> Lifecycle Rules -> create Lifecycle rules
+1. Name
+2. Choose a rule scope
+3. prefix
+4. tags
+5. Lifecycle rule actions
+
+We can move from one class to another from any specific days or we can delete after some specific days.
+
+To save the cost we implement Life cycle management.
+
+Replication Rules:
+Replication in S3 (Duplicate Copy) 
+Replication of obejct.
+
+already  uploaded files  in  the bucket   before  the replication rule files  wil not replicate  .
+files will replicate    only after creating the replication rule.
+
+
+Enable of  versioning is must for Replication in S3 in both soruce and destination bucket
+----------------------------------------------
+management -> replication rules -> create replication rules ->
+   Name, status, source Bucket and scope, Destination and Bucket Name , IAM Role , storage class of replication
+
+Replication can  be done in same region as well as in different region.
+Same account same region
+Different Region Same account
+Same Region Different Account
+Different Region Different Account
+
+Max file size which we can upload in S3?
+5 TB
+
+How many buckets we can create in one account by default?
+100 (Soft limit)
+
+
+Snow Ball (Device)
+--------------------------
+Data transfer of huge data from in-premises to AWS.
+
+Write a request to AWS or job, they will send device to your data center, you connect that device and 
+copy all data and then the device will be move to AWS data center and then they connect and copy your data.
+
