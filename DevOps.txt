@@ -2452,7 +2452,7 @@ set -x
 
 set +x
 
-
+comments:
 #
 
 <<H
@@ -6085,3 +6085,290 @@ Data transfer of huge data from in-premises to AWS.
 Write a request to AWS or job, they will send device to your data center, you connect that device and 
 copy all data and then the device will be move to AWS data center and then they connect and copy your data.
 
+
+check metadata 
+curl http://..../latest/meta-data
+curl ifconfig.me 
+
+
+=================
+compute - EC2
+storage -  EBS
+           EFS
+		   S3
+		   SnowBall
+Networking - VPC
+
+VPC:
+
+Virtual Private Cloud:
+
+Secure servers , Isolated the servers
+
+------
+VPC: - Virtual Private Cloud (Private network)
+Network -> Groups of devices which connected with each other some or the other way using network cables, 
+routers, switches... etc.
+
+LAN -> Local Area Network (Intranet)
+WAN -> Wide Area Network (Internet)
+		   
+		   
+Subnets - Sub networks
+IGW- internet gateway
+Routetable
+NAT  - Network Address Translater
+     NAT gateway /NAT Instance
+NACL - Network Access Control List
+
+
+
+In Default VPC all the  subnets are Public Subnets.
+
+Subnets- 
+	Public Subnets - Subnets have acccess to Internet.
+		               if the  subnets has a route to IGW  in routetable (mention as 0.0.0/0 to IGW)
+					   Subnets which are associated with IGW 
+					   Servers in these subnets will have  accces to Internet
+	Private Subnets - These subnets doesnt have access to Internet.
+			           Subnets which doesnt have route to IGW in route Table
+					   If the subnets which has route not linked to IGW in RouteTable
+					   Servers in these subnets will doesnt have accces to Internet
+					   
+					   
+	
+	
+1 VPC - Upto 200 Subnets	
+
+1 region - 5 VPCs can create(Softlimit)					
+
+
+****VPC Tool Box***********
+-------------------
+**1. VPC (max 5 VPC in one Account)
+**2. Subnets (max 200 subnets in One VPC)
+3. NACL (Network Access Control List)
+**4. Routing Table 
+        how to traffic should be routed from/to each subnets
+		set of  rules
+		
+		1 route table  - as many Subnets
+		1 subnets have 1 route table a time 
+**5. Internet Gateway
+        Virtual router   it will enable the internet to our network/ vpc
+		logical device enabling traffic to be routed to/from the public internet
+		Without IGW resource can talk to each other but not io internet 
+6. NAT Gateway
+
+
+1 IGW is attached to 1 VPC at any time 
+
+VPC - region
+Subnets  - Az
+
+
+ELB -> Loadbalancer as a Service
+--------------------------------------------
+
+RDS -> Relational Data Base as a Service
+------------------------------------------------------
+
+
+CIDR - classless Inter-Domain Routing 
+  method for alloactimg IP address and IP Routing
+  CIDR range 0-32
+  
+  172.31.0.0/16
+  
+  /16  - siderblock /subnet mask
+  
+  32-n
+  2
+  
+  32-16
+  2
+          16
+         2     ==65536  IPv4 32 bit Ips addresss
+
+
+
+Sider block is should be between 16- 28
+
+Never see server  of  public  ip below  range
+		RFC1918 Subnets
+		The RFC1918 address space includes the following networks:
+******Below are will be in Private Ips ***
+
+		10.0.0.0 – 10.255.255.255  
+		172.16.0.0 – 172.31.255.255  
+		192.168.0.0 – 192.168.255.255 	
+		
+	*******************************************	
+Private Ips can be same  as in intranet 
+
+IP addresss Classes:
+
+Class A ---0.0.0.0 - 127.0.0.0 --  (1.0.0.0 to 126.0.0.0)  - N H H H 
+
+Class B --- 128.0.0.0 - 191.255.0.0                         - N N H H 
+
+Class C --- 192.0.0.0 - 223.255.255.0                       - N N N H 
+
+Class D --- 
+
+Class E-
+
+Network Bit  Host bit
+----------------
+Subnet CIDR should be Subset of VPC Cidr
+
+
+
+https://www.davidc.net/sites/default/subnets/subnets.html
+
+
+
+
+VPC Types: -
+
+1)	Default VPC
+2)	Custom VPC
+
+Default VPC: -
+•	Created in each AWS Region when an AWS account is created.
+•	Has default CIDR, Security Group, NACL and Route table settings.
+•	Has an Internet Gateway by default.
+
+Custom VPC: -
+•	Is a VPC on AWS Account owner creates.
+•	AWS user creating the custom VPC can decide the CIDR
+•	Has its own default security group, Network ACL and Route Tables.
+•	Does not have an Internet Gateway by default, one needs to be created if needed.
+
+Steps to create a VPC: -
+1)	VPC
+2)	Subnet
+3)	Internet Gateway
+4)	Route Table configuration
+
+Public Subnet: - If a subnet traffic is routed to an Internet Gateway, the subnet is known as a public Subnet. 
+If you want your instance in a public subnet to communicate with the internet over IPV4, 
+it must have a public IPV4 address or an Elastic IP Address.
+
+Private Subnet: - If a subnet does not have a route to the internet Gateway, the subnet is known as a Private Subnet. 
+When you create a VPC, you must specify an IPV4 CIDR Block for the VPC.
+ The allowed block size is between /16 to /28 netmask. The first four and last IP address of Subnet cannot assigned.
+
+For ex: - for Network 10.0.0.0/16
+
+10.0.0.0		Network Address     
+10.0.0.1		Reserved by AWS for the VPC Router
+10.0.0.2		Reserved by AWS for IP address of DNS server
+10.0.0.3		Reserved for Future Use
+10.0.0.255		Broadcast Address
+
+
+32-n
+2 
+curl -v telnet://65.0.125.11:22
+
+
+Note: - AWS do not support Broadcast in a VPC but reserve this Address.
+
+Implied or logical Router and Router table: -
+
+	It is the central Routing function
+	It connects the different AZ together and connects the VPC to the Internet gateway.
+	You can have upto 200 Route tables per VPC.
+	You can have upto 50 Routes entries per route table.
+	Each subnet must be associated with only one route table at any given time.
+	If you do not specify a subnet to route table association, the subnet will be associates with the VPC route table.
+	You can also edit the main route table if you need, but you cannot delete main route table.
+	However you can make a custom route table manually become the main Route table then you can delete the former main as it is no longer a main route table
+	**  You can associate multiple subnets with the same Route table.
+
+Internet Gateway: -
+
+	The Internet Gateway is a virtual router that connects a VPC to the internet.
+  **	Default VPC is already attached with an Internet gateway.
+	If you create a new VPC then you must attach the Internet Gateway in order to access the Internet.
+	Ensure that your public subnet route table points to the internet gateway.
+	It performs NAT between your private and public IPV4 address.
+	It supports both IPV4 and IPV6.
+
+
+A Virtual Private Cloud is a Virtual Network that closely resembles a traditional Networking 
+that you operate in your own data center, with the benefits of using the scalable infrastructure of AWS.
+
+OR
+
+VPC is a virtual network or datacenter inside AWS for one client.
+
+•	It is logically isolated from other virtual N/W in the AWS cloud.
+•	Max 5 VPC can be created in one account and 200 subnets in one VPC.
+•	We can allocate max 5 Elastic IP.
+•	Once we created VPC- DHCP, NACL and security group will be automatically created.
+•	A VPC is confined to an AWS region and does not extend between regions.
+
+
+VPC will create in a Region
+
+•	Subnet will create in AZ and in two AZ subnet will not same
+•	Two VPC may have same CIDR because they are isolate from each other.
+•	Once the VPC is created, you cannot change its CIDR block Range.
+•	If you need a different CIDR size, create a new VPC.
+•	The different subnets within  VPC cannot overlap.
+•	You can however expond your VPC CIDR by adding new/Extra IP address Ranges (Except Gov-cloud and AWS-China)
+
+Components of VPC: -
+
+•	CIDR and Ip Address, Subnets
+	Implied Router and Routing table 
+	Internet Gateway
+	Security Group
+•	Network ACL
+•	Virtual Private gateway
+•	Peering connection
+•	Elastic IP
+
+
+.Create VPC-
+10.0.0.0/24
+
+Action -->  Edit DNS names
+        -->     Edit resolution
+		
+		
+		
+.Create Subnets:
+
+
+  1subnet:
+		1a AZ
+		Public_1a_Subnet
+		10.0.0.0/26
+   2subnet:
+		1a AZ
+		Private_1a_Subnet
+		10.0.0.64/26
+   3subnet:
+		1b AZ
+		Public_1b_Subnet
+	    10.0.0.192/26
+   4subnet:
+		1b AZ
+		Private_1b_Subnet
+         10.0.0.128/26
+
+		
+
+		==========
+		10.0.0.0/24
+		32-24			8
+		2            = 2  = 256 IPS
+		total IPS - 5* Number of subnets
+		 256    - 5* 4
+		 256-20
+		 236 --Available Ips to use
+		 
+		 
