@@ -5460,6 +5460,7 @@ Security Groups-SG
 3. SG is stateful means if u allow rule in inbound it automactically allwoed in outbound 
 Network security 
 Inbound rules and Outbound rules
+
 5 SG per EC2  instance
 can only have permit Rules, cant have deny rules
 Operates in Instance level 
@@ -5467,10 +5468,15 @@ statefull - return traffic is automactically allowed
 
 --
 NACL 
-Subnet level
+Firewall at Subnet level
 Stateless
 It permit allow as well deny
-Number listof Rules
+Number listof Rules -- 32766
+
+ 1 subnect - NACL
+ 1 NACL = multi Subnet
+ 
+ Once we craete VPC by default , NACL will create n associated to  all subnets in VPC
 
 7>>>>>Key Pair
 ssh key 
@@ -6106,6 +6112,8 @@ Virtual Private Cloud:
 Secure servers , Isolated the servers
 
 ------
+
+
 VPC: - Virtual Private Cloud (Private network)
 Network -> Groups of devices which connected with each other some or the other way using network cables, 
 routers, switches... etc.
@@ -6205,7 +6213,7 @@ Never see server  of  public  ip below  range
 		
 	*******************************************	
 Private Ips can be same  as in intranet 
-
+no public ips in below ranges
 IP addresss Classes:
 
 Class A ---0.0.0.0 - 127.0.0.0 --  (1.0.0.0 to 126.0.0.0)  - N H H H 
@@ -6217,6 +6225,10 @@ Class C --- 192.0.0.0 - 223.255.255.0                       - N N N H
 Class D --- 
 
 Class E-
+
+
+Priavte ips can same 
+
 
 Network Bit  Host bit
 ----------------
@@ -6341,7 +6353,7 @@ Action -->  Edit DNS names
 		
 		
 .Create Subnets:
-
+10.0.0.0/24
 
   1subnet:
 		1a AZ
@@ -6360,9 +6372,9 @@ Action -->  Edit DNS names
 		Private_1b_Subnet
          10.0.0.128/26
 
-		
+		Auto assign pulblic IP:
 
-		==========
+		====================
 		10.0.0.0/24
 		32-24			8
 		2            = 2  = 256 IPS
@@ -6371,4 +6383,195 @@ Action -->  Edit DNS names
 		 256-20
 		 236 --Available Ips to use
 		 
-		 
+------------
+https://www.google.com/search?q=ip+addresses+classes&oq=ip+addresses+class&aqs=chrome.1.69i57j0i512j0i10j0i512j0i10l4.3613j0j9&client=ms-android-oppo-rvo3&sourceid=chrome-mobile&ie=UTF-8#imgdii=CCiPqI6qjv6G1M&imgrc=m_ayDQiEyzXrSM
+
+
+
+https://www.davidc.net/sites/default/subnets/subnets.html
+
+
+-----------
+
+
+	.Create Subnets:
+10.0.0.0/24
+
+  1subnet:
+		1a AZ
+		PublicSubnet-1a
+		10.0.0.0/26
+   2subnet:
+		1a AZ
+		PrivateSubnet-1a
+		10.0.0.64/26
+   3subnet:
+		1b AZ
+		PublicSubnet-1b
+	    10.0.0.192/26
+   4subnet:
+		1b AZ
+		PrivateSubnet-1b
+         10.0.0.128/26
+
+		Auto assign pulblic IP:	disabled means assign public ips to server is disabled
+	
+Auto assign pulblic IP:  in subnet level -  
+
+		select public subnet - action -Edit subnet settings-Auto-assign IP settings--Enable auto-assign public IPv4 address
+	
+Once we create VPC Default route Table wil create	
+
+route - local
+
+1  IGW to  1 VPC
+
+ISP -Internet Service provider  - is the  Responsilbe  for assign public Ips 
+--
+	VPC:
+Subnet
+IGW - create and attach to VPC
+Route Table- local (default) -attched  to subnets (default)
+	 
+create Route Table- #Public - route  --edit -  add route -0.0.0.0/0 --target - IGW
+                     Subnet Assoication  -- #explictly add subnet -- ## Public subnet
+
+
+create Route Table- #Private - route  --edit -  add route -0.0.0.0/0 --target - NAT Gateway
+                     Subnet Assoication  -- #explictly add subnet -- ## Private subnet
+
+
+Public server means- - Route table - IGW - 0.0.0.0/0 --Public --Subnet Assoication
+
+Private Server means - Route table - NAR - 0.0.0.0/0  -- Private -Subnet  assoication
+
+curl  -v telnet://Ip:port
+
+Jump server/Batison Server- Public	server
+
+
+In Public server  (source) we  can access Private server (destination)if they are in SAme VPC - range intranet
+
+
+http://docs.gcc.rug.nl/hyperchicken/ssh-agent-forwarding-mobaxterm/
+
+ssh-agent-forwarding:
+
+
+sudo ssh-add -k ~/Desktop/Privatekey/MumbaiKey.pem
+
+ssh-add -L
+
+ssh -A ec2user@jumpserver
+
+shh ec2-user@privateip
+
+not worked agent-forwarding
+
+so  copied pem in jump server/Bastion Server/Public server 
+
+n ssh
+
+  21/10/2021   23:18.36   /home/mobaxterm/Desktop/Privatekey  ssh -i "MumbaiKey.pem" ec2-user@65.0.125.11 
+Last login: Thu Oct 21 17:41:46 2021 from 157.45.200.68
+[ec2-user@ip-10-0-0-167 ~]$ sudo vi 1.pem
+[ec2-user@ip-10-0-0-167 ~]$ sudo chmod 400 1.pem
+[ec2-user@ip-10-0-0-167 ~]$ ls
+1.pem
+
+[ec2-user@ip-10-0-0-167 ~]$ ssh -i "1.pem" ec2-user@10.0.0.87     #Private server
+[ec2-user@ip-10-0-0-87 ~]$ ls
+[ec2-user@ip-10-0-0-87 ~]$
+
+
+------------
+
+Private server to connect  Internet  to install something
+1..  conenct  to jump sever download required file 
+		scp to private server
+		
+2..Enable internet access to Private server using NAT instance/gateway
+
+		create a NAT Gateways  in public subnet- in samw VPC
+		Elastic Ip
+
+    .. server can access to internet .
+			 not internet to access this private server 
+			 
+			 
+NAT - Network Address Translater
+is one network	device which enable access to internet fro private subnets.
+
+private server to access API services (AWS resoruces)	
+
+	
+
+NACL	:
+
+Network Access Control List:
+
+Firewall
+
+;
+
+
+Each ENV there will be a separate network means
+
+Dev - VPC , subnets 
+Prod - VPC , subnets
+Management - VPC , subnets  --jenkins , sonarQube , nexus
+
+---
+
+VPC Peering:
+
+Servers in 1 vpc to talk to servers in another VPC in a private channel.
+
+IF CIDR of VPCs are overlapping we cant do VPC peering
+
+10.0.0.0/16 , 10.0.0.0/24 -- overlapping  - doesnt know where to route the  traffic, causes ambigute
+
+10.0.0.0/16 , 10.1.0.0/24 --not overlapping 
+
+we can do VPC peering 
+
+Account
+My account
+Another account
+
+Region
+This Region (ap-south-1)
+Another Region
+
+
+Requestor;
+same region
+same account
+different region 
+different account
+
+
+Acceptor;
+
+
+same region
+same account
+different region 
+different account
+
+
+Peerring connection - Requestor -----Acceptor ----(Once Accept)  
+add routes in both the sides  -- connected Privately 
+
+In routes table: in private routes
+10.0.0.0/24 -- Peering Connection
+173.31.0.0/16   -- Peering Connection
+
+to test ping  -- ICMP Protocal
+
+
+VPC- 5 in one region
+
+Subnet in 1 VPC -200
+
+
