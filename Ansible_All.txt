@@ -1,0 +1,310 @@
+Ansible:
+
+
+
+ 
+ 
+ ansible
+ harish1234
+ 
+
+
+#52.66.204.167  ansible_user=ec2-user ansible_ssh_private_key_file=~/devOps.pem
+#13.234.213.6  ansible_user=ec2-user ansible_ssh_private_key_file=~/devOps.pem
+52.66.204.167
+
+[appServers]
+13.234.213.6
+
+
+
+- hosts: all
+  become: true
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+  - name: copy index.html
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+    service:
+      name: httpd
+      state: started
+    
+	
+- hosts: all
+  become: true
+  tasks:
+  - name: Uninstall httpd
+    yum:
+      name: httpd
+      state: absent
+  - name: remove index.html
+    file:
+      path: /var/www/html/index.html
+      state: absent
+
+    
+
+
+    
+----------
+
+Tags
+
+- hosts: all
+  become: true
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    tags:
+    - install 
+  - name : Create folder 
+    file:
+      path: /var/www/html/
+      state: directory
+    tags:
+    - install
+    - create    
+  - name: copy index.html
+    tags:
+    - copy
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+  - name: starting Httpd
+    tags:
+    - install    
+    service:
+      name: httpd
+      state: started
+    
+
+
+ansible-playbook  useTags.yml --tags "install ,copy"
+
+
+ansible-playbook  useTags.yml --skip-tags "copy"\
+\
+
+
+template:
+
+
+- hosts: appServers
+  become: true
+  vars:
+    place: Chickmagaluru
+    number: 10
+    native: Banavara
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    tags:
+    - install
+  - name : Create folder
+    file:
+      path: /var/www/html/
+      state: directory
+    tags:
+    - install
+    - create
+  - name: copy index1.html
+    tags:
+    - copy
+    template:
+      src: index1.html
+      dest: /var/www/html/index1.html
+  - name: starting Httpd
+    tags:
+    - start
+    service:
+      name: httpd
+      state: started
+
+	
+ansible-playbook usetempalate.yml --extra-vars number=12
+
+====================================================================
+
+vi vars.yml
+    place: Chickmagaluru
+    number: 10
+    native: Banavara
+---
+- hosts: appServers
+  become: true
+  vars_files:
+  - vars.yml
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    tags:
+    - install
+  - name : Create folder
+    file:
+      path: /var/www/html/
+      state: directory
+    tags:
+    - install
+    - create
+  - name: copy index1.html
+    tags:
+    - copy
+    template:
+      src: index1.html
+      dest: /var/www/html/index1.html
+  - name: starting Httpd
+    tags:
+    - start
+    service:
+      name: httpd
+      state: started
+	
+	
+	===============
+	- hosts: appServers
+  become: yes
+  tasks:
+  - name: Load Vars Task to load vars from file
+    include_vars:
+      file: vars.yaml
+  - name: Print env varible value
+    debug:
+      msg: "Including httpdvars.yaml"
+  - name: Install Httpd
+    yum:
+      name: httpd
+      state: present
+    tags:
+    - install
+  - name: Create hmtl folder
+    tags:
+    - install
+    file:
+      path: /var/www/html
+      state: directory
+  - name: Copy Index.html
+    template:
+      src: index.html
+      dest: /var/www/html/index.html
+    tags:
+    - copy
+  - name: Start httpd service
+    service:
+      name: httpd
+      state: started
+    tags:
+    - start
+    - install
+	
+	+++++++++++++++++++++
+
+[ansible@ip-172-31-0-232 ~]$ vi varstemplHttpd.yml
+- hosts: appServers
+  become: true
+  vars:
+    env: prod
+  vars_files:
+  - "{{env}}_vars.yml"
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+    tags:
+    - install
+  - name : Create folder
+    file:
+      path: /var/www/html/
+      state: directory
+    tags:
+    - install
+    - create
+  - name: copy index1.html
+    tags:
+    - copy
+    template:
+      src: index1.html
+      dest: /var/www/html/index1.html
+  - name: starting Httpd
+    tags:
+    - start
+    service:
+      name: httpd
+      state: started
+
+  
+  to run 
+  
+  [ansible@ip-172-31-0-232 ~]$ ansible-playbook  varstemplHttpd.yml --extra-vars env=prod
+
+  ansible-playbook playbookName --extra-vars env=dev
+  
+  
+  ----------------
+  
+  debug:
+    var: env
+
+debug:
+  msg: "some msges"
+
+-----------
+
+grouop vars  
+ 
+ 
+ 
+ 
+ Installation
+ 
+ 
+
+# Create Ansible User & Set Password and Grant sudo access, Enable Password Base Auth and restart sshd service.
+
+1) Create the user ansible and set the password on all hosts: 
+
+ 	sudo useradd ansible
+ 	sudo passwd ansible
+ 
+2)	Make the necessary entry in sudoers file /etc/sudoersfor ansible user for password-less sudo access: 
+
+	sudo visudo
+
+	ansible ALL=(ALL) NOPASSWD: ALL
+
+3)Make the necessary changes  in sshd_config file /etc/ssh/sshd_config to enable password based authentication: 
+Un comment PasswordAuthentication yes and comment   PasswordAuthentication no. 
+And save the file .Then restart sshd service.
+
+sudo vi /etc/ssh/sshd_config
+
+sudo service sshd restart
+
+
+# Install Ansible
+
+sudo su ansible
+
+sudo yum install python3 -y
+
+sudo alternatives --set python /usr/bin/python3
+
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm -y
+
+sudo yum -y install ansible
+
+ansible --version 
+
+
+
+
