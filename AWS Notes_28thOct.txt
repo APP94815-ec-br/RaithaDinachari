@@ -1,0 +1,103 @@
+Manage access to AWS resources
+ 
+ AWS Resouces
+   Ec2
+   VPC
+   S3
+   ELB
+   EFS
+   AutoScalingGroups
+   IAM
+   Lambda
+   RDS
+   Cloudwatch
+   
+IAM
+  Policies --> Specific Permsion(Read,Create,Update,Delete) to a specific AWS     Resource(Ec2,VPC,IAM,S3..etc)
+  Users
+    IAM Users
+ LDAP Users
+  Groups --> We can attach policies to the group and users which belongs to that group
+      will have same access levels based on the policies attached to that group.
+   development
+     Policies:
+    EC2ReadOnly
+    VPCReadOnly
+    EKSReadOnly
+    S3ReaOnly
+   
+  Users:
+    Balaji
+    Chandan
+    Babu  
+   devops
+   
+   EC2FullAccess
+   VPCVPCFullAces
+   EKSFullACESS
+   S3FullAcess
+   
+   
+   IAM
+   Lamda
+   RDS
+   
+   
+   Users
+    Mithun
+ Aravind
+ 
+   
+   qa
+   admins
+   
+    Polices
+  *
+  
+ USers: 
+  Prathap 
+   
+  Roles
+  
+  
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install
+  
+  Networking Networks & Firewalls
+  
+  InfraTeam
+   Creating Infra
+    EC2
+ ELB
+ RBD
+ 
+Devi
+  
+  
+Console (GUI) --> UserName & Password
+
+
+Programatic Access --> API,CLI,SDK & Other developmental tools  (access key ID & secret access key)
+
+CLI ---> Command Line Interface 
+
+aws ec2
+
+aws s3
+
+aws eks
+
+
+API --> Application Programming Interface
+
+
+SDK --> Software Development Kit Boto/Bot03 these python sdk for AWS.
+
+
+Python Code 
+
+ Create/Delete/Update my infra strucrue
+ 
+
+Teffarom (Infrastrucutre As A Code)

@@ -1,0 +1,106 @@
+
+
+
+=========================================================================
+Mithun Technologies, Marathahalli, Banglore +91-8296242028,+91-9980923226
+=========================================================================
+
+
+
+
+Agenda: Kubernetes Dash Board Setup
+=======
+
+Dashboard is a web-based Kubernetes user interface. You can use Dashboard to deploy containerized applications to a Kubernetes cluster, troubleshoot your containerized application, and manage the cluster resources. 
+
+You can use Dashboard to get an overview of applications running on your cluster, as well as for creating or modifying individual Kubernetes resources (such as Deployments, Jobs, DaemonSets, etc). 
+
+For example, you can scale a Deployment, initiate a rolling update, restart a pod or deploy new applications using a deploy wizard.
+
+Dashboard also provides information on the state of Kubernetes resources in your cluster and on any errors that may have occurred.
+
+
+Login to Kubernetes master machine And Follow Bellow Setps.
+
+1. Certificates
+====================
+
+You need a dashboard.key and dashboard.crt files for HTTPS.
+It is easy to create self signed ones.
+
+mkdir $HOME/certs
+
+cd $HOME/certs
+
+openssl genrsa -out dashboard.key 2048
+openssl rsa -in dashboard.key -out dashboard.key
+openssl req -sha256 -new -key dashboard.key -out dashboard.csr
+openssl x509 -req -sha256 -days 365 -in dashboard.csr -signkey dashboard.key -out dashboard.crt
+
+Load the certificates into a secret:
+====================================
+
+kubectl create namespace kubernetes-dashboard
+
+kubectl -n kubernetes-dashboard create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs
+
+2. Deploy dashboard
+====================
+
+Use the recommended setup to deploy the kubernetes-dashboard service account, role, rolebinding, deployment and service.
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml
+
+
+
+3. Check if the replica set is fulfuilled. Find the dashboard replica set
+
+kubectl get rs  -n kubernetes-dashboard
+
+
+  
+4. Expose dashboard service on a NodePort.
+
+Finally, we can expose the dashboard service on a NodePort. This will allow it to be publically accessible via a port forwarded on the Kubernetes hosts.
+
+Edit the kubernetes-dashboard service and change the following options.
+spec.type from ClusterIP to NodePort
+
+kubectl -n kubernetes-dashboard edit service kubernetes-dashboard 
+
+
+
+5. Create A Service Account & ClusterRole 
+
+
+
+# Service Account & Cluster Role Binding
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: k8s-admin
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: k8s-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: k8s-admin
+  namespace: kubernetes-dashboard
+  
+
+Get Bearer token
+===================  
+kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep k8s-admin | awk '{print $1}')  
+
+
+
+
+

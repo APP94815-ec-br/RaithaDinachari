@@ -1,0 +1,138 @@
+GitHub Administration
+---------------------
+   https://transcripts.gotomeeting.com/#/s/6df40104f1b87dedc2fcdad3baeb5a4820d2982b03f19d72257f336d9f40c784 
+
+
+Git Commands -1
+---------------
+
+ https://transcripts.gotomeeting.com/#/s/d90f8281e75c80784115749e986f567d7f086ee3f6cc7648f4dee0e49e53bbcc 
+
+
+Git Commands -2
+---------------
+  https://transcripts.gotomeeting.com/#/s/44c3ee61a508c41599ee06c2d321d8b16bdb8e4f05c46d08100d981c7ef31951 
+
+Git Commands -3
+---------------
+ https://transcripts.gotomeeting.com/#/s/21341de12b987307dd9c2078040f78eccfd7f10bdea904e734a492077b4fbe33 
+
+
+
+Git Commands -4
+---------------
+ https://transcripts.gotomeeting.com/#/s/7feb0cec5b9af62174a209a7aa4a0c421e1d1fd72c1024d9ba2672287062926b
+
+Git Commands -5
+---------------
+ https://transcripts.gotomeeting.com/#/s/d2b24cb3f89cdad09702d345a96e8a008dca80b643c8f6ac591535a1dc4b027e
+
+Git Commands -6
+---------------
+ https://transcripts.gotomeeting.com/#/s/25b837a53fd6596d6e7b00327443a1277c2eb9f083e6bf9540f0daf738483ce6
+
+Maven -1
+--------
+ https://transcripts.gotomeeting.com/#/s/cbb096115edcc28866f8c71ecb58be1a1f19c0c01c04cbaa4058d524d1f81521
+
+Maven - 2
+----------
+ https://transcripts.gotomeeting.com/#/s/3f179fe50a2ecd12a116a45d08b026e9e71a8b67f9c688dd39cff3a76ad5c8a6
+
+
+Maven -3
+--------
+ https://transcripts.gotomeeting.com/#/s/c0522365593d28db2d21feb972bd674c78a31f0cf79d3a53be221a6a49ddb5f8
+
+Tomcat -1
+---------
+ https://transcripts.gotomeeting.com/#/s/66d980310747bbbbdbc0728c726a7bf73f32f9283bfcf62323354ba38f71e063
+
+Tomcat -2
+---------
+  https://transcripts.gotomeeting.com/#/s/aa8540b6e4d322836d2e3fdc0647a0d95f99b3425de7a1c2f4b1f0843cb58ecf
+
+Tomcat - 3
+----------
+ https://transcripts.gotomeeting.com/#/s/76942cbb8400e28231ec6317693cd829e2455bdea2fc7e824a79dbbf032c49fd
+
+SonarQube -1
+------------
+https://transcripts.gotomeeting.com/#/s/cd2ef43bb19c0532b96f73161fb67ffe4b895999ecc07607f3276bcb7b8fd5c6
+
+SonarQube -2
+------------
+ https://transcripts.gotomeeting.com/#/s/deb7ae9b546f07e4c2127cc2b4a5d832ad746706b61799bb3aff737c38091862
+
+
+SonarQube 3 - Nexus-1
+---------------------
+
+ https://transcripts.gotomeeting.com/#/s/f564be792d362dcecc5aa99792d97a543e8913695682bad4590edb2d0432f485
+
+
+Nexus -2
+--------
+https://transcripts.gotomeeting.com/#/s/4171ede4da52073736d6715d1811802729a6bcd4dede71b1f5eebb13089883e9
+
+Nexus - 3
+---------
+https://transcripts.gotomeeting.com/#/s/3fc428f1f3a12384deadbb9770be4b6db1e610e33752153693f56667e026c1f2
+
+
+Jenkins -1
+----------
+https://transcripts.gotomeeting.com/#/s/7dbb8889f7d932b6bd5214c6f8e3fde38dd3ec4462765680e0753fc9f011c39d
+
+Jenkins -2
+----------
+https://transcripts.gotomeeting.com/#/s/f657e4d1a5e24686107a815cb1ea6f77e3e90cfc0c7c10425dec8f99b3edd202
+
+Jenkins - 3
+-----------
+https://transcripts.gotomeeting.com/#/s/49cad5e2ad8c8f06f9c86405a5bfa852e9b3a35ee9d318f894a25124f6fbb244
+
+
+Jenkins -4
+----------
+ https://transcripts.gotomeeting.com/#/s/bddbd640bfd996d5e28077fe430d9a157fffa46396355f5ed1a617eb7cb1dc7a
+
+
+Jenkins -5
+----------
+ https://transcripts.gotomeeting.com/#/s/043e85731b7c0f8796cf9d8d6f5e9f91ab057f5374f03b4891a9a79ed1b03b11
+
+
+Jenkins - 6
+-----------
+ https://transcripts.gotomeeting.com/#/s/45ac7506371ce4a9e618dc23a67a466e72c60a93be202106cbe149d40f99012c
+
+Jenkins - 7
+-----------
+ https://transcripts.gotomeeting.com/#/s/5769b379ef53d803fac554f8f3d7f11af544046b6ea6ff8b3b9826a6334e75e9
+
+Jenkins - 8
+-----------
+
+https://transcripts.gotomeeting.com/#/s/300b51678136ee2693f6bf08a4eda163ae282911154527d6e521394f9435496a
+
+Jenkins - 9
+-----------
+ https://transcripts.gotomeeting.com/#/s/84770fb2a63008ffef55c829ffc7919fe9bdd381d1a157d3fcb8878726423866
+
+Jenkins - 10
+------------
+https://transcripts.gotomeeting.com/#/s/a6f0dbcfff2cbc9902849a119ffaa036c5d4b88012df41ae06899a6d9b2bd1fc
+
+
+Monitoring Tools
+----------------
+ https://transcripts.gotomeeting.com/#/s/3a71d0159901be240a65d7c9e9d3ac37371babea446139cdb646e0e235077ef1
+
+
+
+
+
+
+
+
